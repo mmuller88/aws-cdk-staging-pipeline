@@ -29,6 +29,11 @@ export class IntegTesting {
         const customStack = new CustomStack(scope, 'TestCustomStack');
         return customStack;
       },
+      manualApprovals: (_) => true,
+      testCommands: (stageAccount) => [
+        `echo "${stageAccount.stage} stage"`,
+        `echo ${stageAccount.account.id} id + ${stageAccount.account.region} region`,
+      ],
       gitHub: { owner: 'mmuller88', oauthToken: new cdk.SecretValue('repo-token') },
     });
 
