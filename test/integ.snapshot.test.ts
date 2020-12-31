@@ -1,5 +1,5 @@
 import '@aws-cdk/assert/jest';
-import { SynthUtils } from '@aws-cdk/assert';
+// import { SynthUtils } from '@aws-cdk/assert';
 import { IntegTesting } from '../src/integ.default';
 
 test('integ snapshot validation', () => {
