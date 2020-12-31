@@ -25,7 +25,7 @@
   },
   "author": {
     "name": "martin.mueller",
-    "email": "m.mueller@unimed.de",
+    "email": "damadden88@googlemail.de",
     "organization": false
   },
   "devDependencies": {
@@ -112,7 +112,12 @@
   "stability": "stable",
   "jsii": {
     "outdir": "dist",
-    "targets": {},
+    "targets": {
+      "python": {
+        "distName": "aws-cdk-staging-pipeline",
+        "module": "aws_cdk_staging_pipeline"
+      }
+    },
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"

@@ -20,6 +20,10 @@ const project = new AwsCdkConstructLibrary({
   ],
   deps: deps,
   devDeps: deps,
+  python: {
+    distName: 'aws-cdk-staging-pipeline',
+    module: 'aws_cdk_staging_pipeline',
+  },
   keywords: [
     'cdk',
     'aws',
