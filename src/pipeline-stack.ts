@@ -15,22 +15,22 @@ import {
   StackOutput,
 } from '@aws-cdk/pipelines';
 import { AutoDeleteBucket } from '@mobileposse/auto-delete-bucket';
-import { dependencies } from '../package.json';
+// import { dependencies } from '../package.json';
 import { StageAccount } from './accountConfig';
 import { CustomStack } from './custom-stack';
 import { CustomStage } from './custom-stage';
 
 export interface PipelineStackProps extends StackProps {
   // customStage: Stage;
-  customStack: (scope: Construct, stageAccount: StageAccount) => CustomStack;
+  readonly customStack: (scope: Construct, stageAccount: StageAccount) => CustomStack;
   // customStack: CustomStack;
-  stageAccounts: StageAccount[];
-  branch: string;
-  repositoryName: string;
-  buildCommand?: string;
-  gitHub: { owner: string; oauthToken: SecretValue };
-  manualApprovals?: (stageAccount: StageAccount) => boolean;
-  testCommands?: (stageAccount: StageAccount) => string[];
+  readonly stageAccounts: StageAccount[];
+  readonly branch: string;
+  readonly repositoryName: string;
+  readonly buildCommand?: string;
+  readonly gitHub: { owner: string; oauthToken: SecretValue };
+  readonly manualApprovals?: (stageAccount: StageAccount) => boolean;
+  readonly testCommands?: (stageAccount: StageAccount) => string[];
 }
 
 export class PipelineStack extends Stack {
@@ -75,7 +75,7 @@ export class PipelineStack extends Stack {
       synthAction: SimpleSynthAction.standardNpmSynth({
         sourceArtifact,
         cloudAssemblyArtifact,
-        installCommand: `yarn install && yarn global add aws-cdk@${dependencies['@aws-cdk/core']}`,
+        installCommand: 'yarn install && yarn global add aws-cdk',
         synthCommand: 'yarn run cdksynth',
         // subdirectory: 'cdk',
         // We need a build step to compile the TypeScript Lambda

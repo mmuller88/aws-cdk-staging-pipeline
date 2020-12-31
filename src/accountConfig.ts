@@ -1,5 +1,5 @@
 export interface StageAccount {
-  account: Account,
+  account: Account;
   stage: string;
 }
 
@@ -18,5 +18,5 @@ export interface SharedAccountProps {
   vpc: {
     vpcId: string;
     availabilityZones: string[];
-  }
+  };
 }
