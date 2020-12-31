@@ -6,4 +6,4 @@ An AWS CDK Construct with utilizing the CDK Pipeline and with focus on abstracti
 
 # Thanks To
 * The CDK Community cdk-dev.slack.com
-* [Projen](https://github.com/projen/projen) project and the community around it.
+* [Projen](https://github.com/projen/projen) project and the community around i
