@@ -4,13 +4,25 @@
 
 # aws-cdk-staging-pipeline
 
-An AWS CDK Construct with utilizing the CDK Pipeline and with focus on abstraction with use of higher order functions.
+An AWS CDK Construct with utilizing the CDK Pipeline and with focus on abstraction with use of higher order functions to hide more details of the staging pipeline.
+
+If you successfully managed to set this staging pipeline up, in future only commits to the choosen remote in **branch** will be sufficiently to make changes to your staging stacks and to the pipeline itself as the pipeline is self-mutating.
+
+It leverages all the cool stuff from the [CDK Pipeline](https://docs.aws.amazon.com/cdk/latest/guide/cdk_pipeline.html). As a matter of fact the core component is the CDK Pipeline.
+
+As well this construct leverages the [Projen](https://github.com/projen/projen) as its best like the library is created with Projen and I utilise the default commands like yarn deploy, yarn build and so one.
+
+Unlucky this library can't be translated to PyPi / Python as is uses higher order functions and the translation with [JSII](https://github.com/aws/jsii) for those are not supported for. Hopefully that will be supported soon.
 
 # Usage
 
-Your stack you want to be managed by the staging pipeline needs to extend from the **CustomStack** intferace.
+Your stack you want to be managed by the staging pipeline needs to extend from the **CustomStack** interface.
 
-Look at the example. Please be aware that the staging pipeline is atm only designed for managing one stack. But it should be possible to manage multiple. As well you might run into issue using different accounts. Than check you cdk bootstrap. Anyway as this is experimental there are probably still issues in the library. I am happy to see PRs.
+Look at the example. Please be aware that the staging pipeline is atm only designed for managing one stack. But it should be possible to manage multiple stack.
+
+As well you might run into issue using different accounts. Than check you cdk bootstrap. Anyway as this is experimental there are probably still issues in the library. ATM my different stages map to different regions in the same account. A better practice would be do have multiple Accounts. So for each stage a dedicated account. But ATM I don't want to struggle with multiple accounts yet.
+
+I am excited to your feedback and would be happy to see PRs. Enjoy.
 
 # Example
 
@@ -26,21 +38,21 @@ const stack = new core.Stack(app, 'petstoreStack');
 new PipelineStack(stack, 'PipelineStack', {
   // Account and region where the pipeline will be build
   env: {
-    account: '981237193288',
+    account: 'XXX',
     region: 'eu-central-1',
   },
   // Staging Accounts e.g. dev qa prod
   stageAccounts: [
     {
       account: {
-        id: '981237193288',
+        id: 'XXX',
         region: 'eu-central-1',
       },
       stage: 'dev',
     },
     {
       account: {
-        id: '981237193288',
+        id: 'XXX',
         region: 'us-east-1',
       },
       stage: 'prod',
@@ -67,6 +79,11 @@ new PipelineStack(stack, 'PipelineStack', {
 
 app.synth();
 ```
+
+# Planed Features
+
+- making GitLab and AWS CodeCommit repo available too
+- ...
 
 # Thanks To
 
