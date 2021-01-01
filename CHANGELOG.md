@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.5...v0.0.6) (2021-01-01)
+
+
+### Features
+
+* cdk construct takes a construct as parent ([ce06d13](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/ce06d13755c4442e661610dc2a2569115eb04831))
+
 ### [0.0.5](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.3...v0.0.5) (2021-01-01)
 
 
