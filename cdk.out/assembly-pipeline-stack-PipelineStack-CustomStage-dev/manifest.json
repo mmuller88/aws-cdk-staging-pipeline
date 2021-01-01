@@ -1,0 +1,139 @@
+{
+  "version": "7.0.0",
+  "artifacts": {
+    "pipelinestackPipelineStackCustomStagedevTestCustomStackA15FCE99.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "pipelinestackPipelineStackCustomStagedevTestCustomStackA15FCE99.assets.json",
+        "requiresBootstrapStackVersion": 4
+      }
+    },
+    "pipelinestackPipelineStackCustomStagedevTestCustomStackA15FCE99": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://981237193288/eu-central-1",
+      "properties": {
+        "templateFile": "pipelinestackPipelineStackCustomStagedevTestCustomStackA15FCE99.template.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::981237193288:role/cdk-hnb659fds-deploy-role-981237193288-eu-central-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::981237193288:role/cdk-hnb659fds-cfn-exec-role-981237193288-eu-central-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-981237193288-eu-central-1/48be8a5c2e3d5083e4d700dc79c3f222692e331c3b71b07880acabd13f188400",
+        "requiresBootstrapStackVersion": 4,
+        "additionalDependencies": [
+          "pipelinestackPipelineStackCustomStagedevTestCustomStackA15FCE99.assets"
+        ],
+        "stackName": "CustomStage-dev-TestCustomStack"
+      },
+      "dependencies": [
+        "pipelinestackPipelineStackCustomStagedevTestCustomStackA15FCE99.assets"
+      ],
+      "metadata": {
+        "/pipeline-stack/PipelineStack/CustomStage-dev/TestCustomStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:51:24)",
+              "/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "injectMetadataResources (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "CustomStage.synth (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "CdkStage.addApplication (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/pipelines/lib/stage.ts:78:26)",
+              "CdkPipeline.addApplicationStage (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/pipelines/lib/pipeline.ts:249:11)",
+              "new PipelineStack (/home/martin/git/aws-cdk-staging-pipeline/src/pipeline-stack.ts:108:40)",
+              "new IntegTesting (/home/martin/git/aws-cdk-staging-pipeline/src/integ.default.ts:18:5)",
+              "Object.<anonymous> (/home/martin/git/aws-cdk-staging-pipeline/src/integ.default.ts:44:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/home/martin/.npm/_npx/104717/lib/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/martin/.npm/_npx/104717/lib/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/home/martin/.npm/_npx/104717/lib/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/home/martin/.npm/_npx/104717/lib/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/pipeline-stack/PipelineStack/CustomStage-dev/TestCustomStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion",
+            "trace": [
+              "addBootstrapVersionRule (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.ts:524:17)",
+              "DefaultStackSynthesizer.synthesize (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.ts:354:7)",
+              "/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:157:29",
+              "visit (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "synthesizeTree (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:150:3)",
+              "Object.synthesize (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:39:3)",
+              "CustomStage.synth (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "CdkStage.addApplication (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/pipelines/lib/stage.ts:78:26)",
+              "CdkPipeline.addApplicationStage (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/pipelines/lib/pipeline.ts:249:11)",
+              "new PipelineStack (/home/martin/git/aws-cdk-staging-pipeline/src/pipeline-stack.ts:108:40)",
+              "new IntegTesting (/home/martin/git/aws-cdk-staging-pipeline/src/integ.default.ts:18:5)",
+              "Object.<anonymous> (/home/martin/git/aws-cdk-staging-pipeline/src/integ.default.ts:44:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/home/martin/.npm/_npx/104717/lib/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/martin/.npm/_npx/104717/lib/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/home/martin/.npm/_npx/104717/lib/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/home/martin/.npm/_npx/104717/lib/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/pipeline-stack/PipelineStack/CustomStage-dev/TestCustomStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion",
+            "trace": [
+              "addBootstrapVersionRule (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.ts:534:3)",
+              "DefaultStackSynthesizer.synthesize (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.ts:354:7)",
+              "/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:157:29",
+              "visit (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "synthesizeTree (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:150:3)",
+              "Object.synthesize (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/private/synthesis.ts:39:3)",
+              "CustomStage.synth (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "CdkStage.addApplication (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/pipelines/lib/stage.ts:78:26)",
+              "CdkPipeline.addApplicationStage (/home/martin/git/aws-cdk-staging-pipeline/node_modules/@aws-cdk/pipelines/lib/pipeline.ts:249:11)",
+              "new PipelineStack (/home/martin/git/aws-cdk-staging-pipeline/src/pipeline-stack.ts:108:40)",
+              "new IntegTesting (/home/martin/git/aws-cdk-staging-pipeline/src/integ.default.ts:18:5)",
+              "Object.<anonymous> (/home/martin/git/aws-cdk-staging-pipeline/src/integ.default.ts:44:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/home/martin/.npm/_npx/104717/lib/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/martin/.npm/_npx/104717/lib/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/home/martin/.npm/_npx/104717/lib/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/home/martin/.npm/_npx/104717/lib/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/usr/local/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

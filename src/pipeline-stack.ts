@@ -89,7 +89,7 @@ export class PipelineStack extends Stack {
 
       const customStage = new CustomStage(
         this,
-        `CustomStage-${stageAccount.stage}`,
+        `${this.stackName}-${stageAccount.stage}`,
         {
           customStack: props.customStack,
           // customStack: (_scope, account) => {
@@ -129,7 +129,7 @@ export class PipelineStack extends Stack {
             }),
           ],
           additionalArtifacts: [sourceArtifact],
-          actionName: 'TestCustomStack',
+          actionName: 'RunTestCommands',
           useOutputs,
           commands: testCommands,
           runOrder: preprodStage.nextSequentialRunOrder(),

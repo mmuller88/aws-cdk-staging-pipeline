@@ -80,9 +80,11 @@ new PipelineStack(stack, 'PipelineStack', {
 app.synth();
 ```
 
-# Planed Features
+# Planed Features / Ideas
 
 - making GitLab and AWS CodeCommit repo available too
+- conditional runs / triggering of the pipeline would be cool. Maybe only if it is a versions commit
+- having a way to manage multiple stacks with might dedicated versions / dashboard features would be cool
 - ...
 
 # Thanks To
