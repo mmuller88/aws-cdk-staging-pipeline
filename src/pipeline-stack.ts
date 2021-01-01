@@ -5,7 +5,6 @@ import {
   Stack,
   StackProps,
   SecretValue,
-  Tags,
   Construct,
 } from '@aws-cdk/core';
 import {
@@ -34,10 +33,10 @@ export interface PipelineStackProps extends StackProps {
 }
 
 export class PipelineStack extends Stack {
-  constructor(parent: Stack, id: string, props: PipelineStackProps) {
+  constructor(parent: Construct, id: string, props: PipelineStackProps) {
     super(parent, id, props);
 
-    Tags.of(this).add('PipelineStack', this.stackName);
+    // Tags.of(this).add('PipelineStack', this.stackName);
 
     // const oauth = SecretValue.secretsManager('alfcdk', {
     //   jsonField: 'muller88-github-token',
