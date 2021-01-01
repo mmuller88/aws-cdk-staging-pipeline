@@ -41,6 +41,7 @@ junit.xml
 /coverage
 /lib
 /dist
+cdk.out
 !/.projen/tasks.json
 !/.projen/deps.json
 !/package.json

@@ -16,6 +16,7 @@ dist
 /.idea
 /tsconfig.jest.json
 /.eslintrc.json
+cdk.out
 !/lib
 !/lib/**/*.js
 !/lib/**/*.d.ts

@@ -42,4 +42,8 @@ const project = new TypeScriptProject({
   ],
 });
 
+const common_exclude = ['cdk.out'];
+project.npmignore.exclude(...common_exclude);
+project.gitignore.exclude(...common_exclude);
+
 project.synth();
