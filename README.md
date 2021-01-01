@@ -1,5 +1,4 @@
 [![NPM version](https://badge.fury.io/js/aws-cdk-staging-pipeline.svg)](https://badge.fury.io/js/aws-cdk-staging-pipeline)
-[![PyPI version](https://badge.fury.io/py/aws-cdk-staging-pipeline.svg)](https://badge.fury.io/py/aws-cdk-staging-pipeline)
 ![Release](https://github.com/mmuller88/aws-cdk-staging-pipeline/workflows/Release/badge.svg)
 
 # aws-cdk-staging-pipeline
@@ -26,42 +25,51 @@ I am excited to your feedback and would be happy to see PRs. Enjoy.
 
 # Example
 
+Taken from https://github.com/mmuller88/aws-api-gw-petstore-example
+
 ```ts
 import * as core from '@aws-cdk/core';
 import { PipelineStack } from 'aws-cdk-staging-pipeline';
+// import { PipelineStack } from '../../aws-cdk-staging-pipeline/src/index';
 import { ApiGwStack } from './apigw-stack';
 
 const app = new core.App();
 
-const stack = new core.Stack(app, 'petstoreStack');
-
-new PipelineStack(stack, 'PipelineStack', {
+new PipelineStack(app, 'petstore-pipeline', {
+  stackName: 'petstore-pipeline',
   // Account and region where the pipeline will be build
   env: {
-    account: 'XXX',
+    account: 'XYZ',
     region: 'eu-central-1',
   },
   // Staging Accounts e.g. dev qa prod
   stageAccounts: [
     {
       account: {
-        id: 'XXX',
+        id: 'XYZ',
         region: 'eu-central-1',
       },
       stage: 'dev',
     },
     {
       account: {
-        id: 'XXX',
+        id: 'XYZ',
         region: 'us-east-1',
       },
       stage: 'prod',
     },
   ],
   branch: 'master',
-  repositoryName: 'aws-cdk-staging-pipeline',
-  customStack: (scope, _) => {
-    const apiGwStack = new ApiGwStack(scope, 'api-gw-stack-dev');
+  repositoryName: 'aws-api-gw-petstore-example',
+  customStack: (scope, stageAccount) => {
+    const apiGwStack = new ApiGwStack(
+      scope,
+      `petstore-stack-${stageAccount.stage}`,
+      {
+        stackName: `petstore-stack-${stageAccount.stage}`,
+        stage: stageAccount.stage,
+      },
+    );
     return apiGwStack;
   },
   manualApprovals: (_) => true,
@@ -85,6 +93,11 @@ app.synth();
 - making GitLab and AWS CodeCommit repo available too
 - conditional runs / triggering of the pipeline would be cool. Maybe only if it is a versions commit
 - having a way to manage multiple stacks with might dedicated versions / dashboard features would be cool
+- ...
+
+# Troubleshooting
+
+- I had some issues with the bootstrap stack in the stage regions. So I just recreated them
 - ...
 
 # Thanks To
