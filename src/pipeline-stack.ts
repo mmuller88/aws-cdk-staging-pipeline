@@ -20,27 +20,47 @@ import { CustomStack } from './custom-stack';
 import { CustomStage } from './custom-stage';
 
 export interface PipelineStackProps extends StackProps {
-  // customStage: Stage;
+  /**
+   * The stack you want to be managed with the pipeline.
+   * @param scope it the parent construct.
+   * @param stageAccount the stage account from the current pipeline stage. You can use than stageAccount.stage or stageAccount.account.id or stageAccount.region
+   */
   readonly customStack: (scope: Construct, stageAccount: StageAccount) => CustomStack;
   // customStack: CustomStack;
+  /**
+   * Array of staging accounts. The order of the StageAccounts in the array determines the order of the pipeline.
+   */
   readonly stageAccounts: StageAccount[];
+  /**
+   * Branch you want the pipeline listen to
+   */
   readonly branch: string;
+  /**
+   * Repository name from your repo in your GitHub account
+   */
   readonly repositoryName: string;
+  /**
+   * If you need a certain build command for the synth action from the CDK Pipeline
+   */
   readonly buildCommand?: string;
+  /**
+   * Your GitHub credentials
+   */
   readonly gitHub: { owner: string; oauthToken: SecretValue };
+  /**
+   * Higher order function to determine if your stage shall be approved manually. E.g. if (stageAccount.stage === 'prod') return true
+   * @default false
+   */
   readonly manualApprovals?: (stageAccount: StageAccount) => boolean;
+  /**
+   * Commands for testing or cleaning up your stack. It is pretty much the same as testCommands from the CDK Pipeline but additionally you can use stageAccount properties
+   */
   readonly testCommands?: (stageAccount: StageAccount) => string[];
 }
 
 export class PipelineStack extends Stack {
   constructor(parent: Construct, id: string, props: PipelineStackProps) {
     super(parent, id, props);
-
-    // Tags.of(this).add('PipelineStack', this.stackName);
-
-    // const oauth = SecretValue.secretsManager('alfcdk', {
-    //   jsonField: 'muller88-github-token',
-    // });
 
     const sourceBucket = new AutoDeleteBucket(this, 'PipeBucket', {
       versioned: true,

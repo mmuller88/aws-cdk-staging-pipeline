@@ -1,22 +1,15 @@
 export interface StageAccount {
+  /**
+   * Account ID and region
+   */
   account: Account;
+  /**
+   * Stage like dev, qa, prod
+   */
   stage: string;
 }
 
 export interface Account {
   id: string;
   region: string;
-}
-
-export interface SharedAccountProps {
-  stageAccount: StageAccount;
-  domainName: string;
-  subDomain: string;
-  acmCertRef: string;
-  hostedZoneId: string;
-  zoneName: string;
-  vpc: {
-    vpcId: string;
-    availabilityZones: string[];
-  };
 }
