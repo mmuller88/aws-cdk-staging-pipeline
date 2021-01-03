@@ -134,6 +134,7 @@ export class PipelineStack extends core.Stack {
 
       const useOutputs: Record<string, StackOutput> = {};
 
+      // Add outputs from the CustomStack
       for (const cfnOutput in customStage.customStack.cfnOutputs) {
         console.log(`key: ${cfnOutput}, Outputs: ${JSON.stringify(customStage.customStack.cfnOutputs[cfnOutput])}`);
         const output = new core.CfnOutput(customStage.customStack, cfnOutput, customStage.customStack.cfnOutputs[cfnOutput]);
