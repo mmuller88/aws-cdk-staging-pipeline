@@ -13,6 +13,10 @@ As well this construct leverages the [Projen](https://github.com/projen/projen) 
 
 Unlucky this library can't be translated to PyPi / Python as is uses higher order functions and the translation with [JSII](https://github.com/aws/jsii) for those are not supported for. Hopefully that will be supported soon.
 
+# Special Features
+
+- CustomStacks gets automatically attached the following CFN Outputs Stage, CommitID
+
 # Usage
 
 Your stack you want to be managed by the staging pipeline needs to extend from the **CustomStack** interface.

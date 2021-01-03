@@ -22,6 +22,8 @@ export class CustomStage extends core.Stage {
     const customStack = props.customStack.call(this, this, stageAccount);
     new core.CfnOutput(customStack, 'Stage', { value: props.stage || 'not set!' });
     new core.CfnOutput(customStack, 'CommitID', { value: process.env.CODEBUILD_RESOLVED_SOURCE_VERSION || 'not set!' });
+    new core.CfnOutput(customStack, 'RepoUrl', { value: process.env.CODEBUILD_SOURCE_REPO_URL || 'not set!' });
+    new core.CfnOutput(customStack, 'WebhookTrigger', { value: process.env.CODEBUILD_WEBHOOK_TRIGGER || 'not set!' });
 
     // tslint:disable-next-line: forin
     for (const key in customStack.cfnOutputs) {
