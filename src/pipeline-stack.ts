@@ -122,6 +122,7 @@ export class PipelineStack extends core.Stack {
             account: stageAccount.account.id,
             region: stageAccount.account.region,
           },
+          authorDate: repo.variables.authorDate,
         },
         stageAccount,
       );
