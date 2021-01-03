@@ -1,12 +1,7 @@
 import { Artifact, Pipeline } from '@aws-cdk/aws-codepipeline';
 import { GitHubSourceAction } from '@aws-cdk/aws-codepipeline-actions';
 import { PolicyStatement } from '@aws-cdk/aws-iam';
-import {
-  Stack,
-  StackProps,
-  SecretValue,
-  Construct,
-} from '@aws-cdk/core';
+import * as core from '@aws-cdk/core';
 import {
   CdkPipeline,
   ShellScriptAction,
@@ -19,13 +14,13 @@ import { StageAccount } from './accountConfig';
 import { CustomStack } from './custom-stack';
 import { CustomStage } from './custom-stage';
 
-export interface PipelineStackProps extends StackProps {
+export interface PipelineStackProps extends core.StackProps {
   /**
    * The stack you want to be managed with the pipeline.
    * @param scope it the parent construct.
    * @param stageAccount the stage account from the current pipeline stage. You can use than stageAccount.stage or stageAccount.account.id or stageAccount.region
    */
-  readonly customStack: (scope: Construct, stageAccount: StageAccount) => CustomStack;
+  readonly customStack: (scope: core.Construct, stageAccount: StageAccount) => CustomStack;
   // customStack: CustomStack;
   /**
    * Array of staging accounts. The order of the StageAccounts in the array determines the order of the pipeline.
@@ -46,7 +41,7 @@ export interface PipelineStackProps extends StackProps {
   /**
    * Your GitHub credentials
    */
-  readonly gitHub: { owner: string; oauthToken: SecretValue };
+  readonly gitHub: { owner: string; oauthToken: core.SecretValue };
   /**
    * Higher order function to determine if your stage shall be approved manually. E.g. if (stageAccount.stage === 'prod') return true
    * @default false
@@ -58,9 +53,19 @@ export interface PipelineStackProps extends StackProps {
   readonly testCommands?: (stageAccount: StageAccount) => string[];
 }
 
-export class PipelineStack extends Stack {
-  constructor(parent: Construct, id: string, props: PipelineStackProps) {
+export class PipelineStack extends core.Stack {
+  constructor(parent: core.Construct, id: string, props: PipelineStackProps) {
     super(parent, id, props);
+
+    if (props.stageAccounts.length === 0) {
+      throw Error('You need at least one stage!');
+    }
+
+    for (const stageAccount of props.stageAccounts) {
+      if (!stageAccount.stage) {
+        throw Error('Every stage needs a name like dev, qa or prod!');
+      }
+    }
 
     const sourceBucket = new AutoDeleteBucket(this, 'PipeBucket', {
       versioned: true,
@@ -74,6 +79,15 @@ export class PipelineStack extends Stack {
     const sourceArtifact = new Artifact();
     const cloudAssemblyArtifact = new Artifact();
 
+    const repo = new GitHubSourceAction({
+      actionName: 'GithubSource',
+      branch: props.branch,
+      owner: props.gitHub.owner,
+      repo: props.repositoryName,
+      oauthToken: props.gitHub.oauthToken,
+      output: sourceArtifact,
+    });
+
     const cdkPipeline = new CdkPipeline(this, 'CdkPipeline', {
       // The pipeline name
       // pipelineName: `${this.stackName}-pipeline`,
@@ -81,14 +95,7 @@ export class PipelineStack extends Stack {
       codePipeline: pipeline,
 
       // Where the source can be found
-      sourceAction: new GitHubSourceAction({
-        actionName: 'GithubSource',
-        branch: props.branch,
-        owner: props.gitHub.owner,
-        repo: props.repositoryName,
-        oauthToken: props.gitHub.oauthToken,
-        output: sourceArtifact,
-      }),
+      sourceAction: repo,
 
       // How it will be built and synthesized
       synthAction: SimpleSynthAction.standardNpmSynth({
@@ -110,11 +117,7 @@ export class PipelineStack extends Stack {
         this,
         `${this.stackName}-${stageAccount.stage}`,
         {
-          stage: stageAccount.stage,
           customStack: props.customStack,
-          // customStack: (_scope, account) => {
-          //   return props.customStack(this, account);
-          // },
           env: {
             account: stageAccount.account.id,
             region: stageAccount.account.region,
@@ -123,7 +126,10 @@ export class PipelineStack extends Stack {
         stageAccount,
       );
 
-      // console.log('customStage = ' + customStage);
+      new core.CfnOutput(customStage.customStack, 'Stage', { value: stageAccount.stage || 'not set!' });
+      new core.CfnOutput(customStage.customStack, 'CommitID', { value: process.env.CODEBUILD_RESOLVED_SOURCE_VERSION || 'not set!' });
+      new core.CfnOutput(customStage.customStack, 'RepoUrl', { value: process.env.CODEBUILD_SOURCE_REPO_URL || 'not set!' });
+      new core.CfnOutput(customStage.customStack, 'WebhookTrigger', { value: process.env.CODEBUILD_WEBHOOK_TRIGGER || 'not set!' });
 
       const preprodStage = cdkPipeline.addApplicationStage(customStage, {
         manualApprovals: props.manualApprovals?.call(this, stageAccount),
@@ -132,9 +138,9 @@ export class PipelineStack extends Stack {
       const useOutputs: Record<string, StackOutput> = {};
 
       // tslint:disable-next-line: forin
-      for (const cfnOutput in customStage.cfnOutputs) {
+      for (const cfnOutput in customStage.customStack.cfnOutputs) {
         useOutputs[cfnOutput] = cdkPipeline.stackOutput(
-          customStage.cfnOutputs[cfnOutput],
+          customStage.customStack.cfnOutputs[cfnOutput],
         );
       }
 

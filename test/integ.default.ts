@@ -8,13 +8,6 @@ export class IntegTesting {
   constructor() {
     const app = new TestApp();
 
-    // const env = {
-    //   region: process.env.CDK_DEFAULT_REGION,
-    //   account: process.env.CDK_DEFAULT_ACCOUNT,
-    // };
-
-    // const synthesizer = new core.DefaultStackSynthesizer({ qualifier: 'pipeline-stack' });
-
     // Create a loose coupled SSM Parameter from type String
     const stack = new PipelineStack(app, 'PipelineStack', {
       env: PIPELINE_ENV,

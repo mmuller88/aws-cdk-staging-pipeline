@@ -8,6 +8,7 @@ import * as core from '@aws-cdk/core';
  * WebhookTrigger: CODEBUILD_WEBHOOK_TRIGGER
  */
 export class CustomStack extends core.Stack {
+  // Necessary to wrap the CfnOutputs and make them available for the testCommands
   cfnOutputs: Record<string, core.CfnOutput> = {};
 
   constructor(scope: core.Construct, id: string, props?: core.StackProps) {

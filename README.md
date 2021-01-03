@@ -15,7 +15,7 @@ Unlucky this library can't be translated to PyPi / Python as is uses higher orde
 
 # Special Features
 
-- CustomStacks gets automatically attached the following CFN Outputs Stage, CommitID
+- CustomStacks automatically getting some build information like Stage or CommitId attached. Check src/custom-stack.ts for more details.
 
 # Usage
 
