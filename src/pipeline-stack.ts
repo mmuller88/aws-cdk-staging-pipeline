@@ -132,12 +132,10 @@ export class PipelineStack extends core.Stack {
       new core.CfnOutput(customStage.customStack, 'BranchName', { value: props.branch || 'not set!' });
       new core.CfnOutput(customStage.customStack, 'BuildUrl', { value: process.env.CODEBUILD_BUILD_URL || 'not set!' });
 
+      // unwrap CustomStack cfnOutputs for using in useOutputs for test action
       const useOutputs: Record<string, StackOutput> = {};
-
-      // Add outputs from the CustomStack
       for (const cfnOutput in customStage.customStack.cfnOutputs) {
-        console.log(`key: ${cfnOutput}, Outputs: ${JSON.stringify(customStage.customStack.cfnOutputs[cfnOutput])}`);
-        const output = new core.CfnOutput(customStage.customStack, cfnOutput, customStage.customStack.cfnOutputs[cfnOutput]);
+        const output = customStage.customStack.cfnOutputs[cfnOutput];
         useOutputs[cfnOutput] = cdkPipeline.stackOutput(
           output,
         );
@@ -146,6 +144,7 @@ export class PipelineStack extends core.Stack {
       const preprodStage = cdkPipeline.addApplicationStage(customStage, {
         manualApprovals: props.manualApprovals?.call(this, stageAccount),
       });
+
 
       const testCommands = props.testCommands ? props.testCommands.call(this, stageAccount) : [];
 
