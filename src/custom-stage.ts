@@ -1,4 +1,4 @@
-import * core from '@aws-cdk/core';
+import * as core from '@aws-cdk/core';
 import { StageAccount } from './accountConfig';
 import { CustomStack } from './custom-stack';
 
