@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.9...v0.0.10) (2021-01-03)
+
+
+### Features
+
+* add commit id and stage output to CFN Output ([df10eaf](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/df10eaf52a5c57169c5cb7d87d239c8c926006d3))
+* add snapshot capability for unit tests ([19ef63c](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/19ef63c6973f6506ae1552c4623b6e3bb043ab8e))
+* add snapshot capability for unit tests ([1d2658e](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/1d2658ed1b65204cddfd5067a8426335f6ac08c4))
+* add snapshot capability for unit tests ([e3dd4f7](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/e3dd4f71e5bdb784d913323439b016db0f2fdb15))
+
 ### [0.0.9](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.8...v0.0.9) (2021-01-03)
 
 
