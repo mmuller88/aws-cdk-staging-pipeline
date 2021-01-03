@@ -124,7 +124,7 @@ export class PipelineStack extends core.Stack {
         stageAccount,
       );
 
-      console.log(`Env: ${JSON.stringify(process.env)}`);
+      // console.log(`Env: ${JSON.stringify(process.env)}`);
 
       new core.CfnOutput(customStage.customStack, 'Stage', { value: stageAccount.stage || 'not set!' });
       new core.CfnOutput(customStage.customStack, 'CommitID', { value: process.env.CODEBUILD_RESOLVED_SOURCE_VERSION || 'not set!' });
@@ -132,18 +132,19 @@ export class PipelineStack extends core.Stack {
       new core.CfnOutput(customStage.customStack, 'BranchName', { value: props.branch || 'not set!' });
       new core.CfnOutput(customStage.customStack, 'BuildUrl', { value: process.env.CODEBUILD_BUILD_URL || 'not set!' });
 
-      const preprodStage = cdkPipeline.addApplicationStage(customStage, {
-        manualApprovals: props.manualApprovals?.call(this, stageAccount),
-      });
-
       const useOutputs: Record<string, StackOutput> = {};
 
       for (const cfnOutput in customStage.customStack.cfnOutputs) {
+        console.log(`key: ${cfnOutput}, Outputs: ${JSON.stringify(customStage.customStack.cfnOutputs[cfnOutput])}`);
         const output = new core.CfnOutput(customStage.customStack, cfnOutput, customStage.customStack.cfnOutputs[cfnOutput]);
         useOutputs[cfnOutput] = cdkPipeline.stackOutput(
           output,
         );
       }
+
+      const preprodStage = cdkPipeline.addApplicationStage(customStage, {
+        manualApprovals: props.manualApprovals?.call(this, stageAccount),
+      });
 
       const testCommands = props.testCommands ? props.testCommands.call(this, stageAccount) : [];
 

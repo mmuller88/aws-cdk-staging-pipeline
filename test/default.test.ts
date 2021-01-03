@@ -9,7 +9,8 @@ describe('Create', () => {
     const app = new TestApp();
     describe('succeed', () => {
       test('which exist', () => {
-        new PipelineStack(app, 'PipelineStack', {
+        let customStack;
+        const stack = new PipelineStack(app, 'PipelineStack', {
           env: PIPELINE_ENV,
           stageAccounts: [{
             account: {
@@ -27,11 +28,15 @@ describe('Create', () => {
           branch: 'master',
           repositoryName: 'aws-cdk-staging-pipeline',
           customStack: (scope, _) => {
-            const customStack = new CustomStack(scope, 'TestCustomStack');
+            customStack = new CustomStack(scope, 'TestCustomStack');
+            customStack.cfnOutputs.Blub = { value: 'BlubValue' };
             return customStack;
           },
           gitHub: { owner: 'mmuller88', oauthToken: new core.SecretValue('repo-token') },
         });
+
+        expect(stack).toHaveResourceLike('AWS::CodeBuild::Project');
+        expect(customStack).toHaveOutput()
       });
     });
 

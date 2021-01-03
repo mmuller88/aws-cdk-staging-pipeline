@@ -22,7 +22,7 @@ export class IntegTesting {
       repositoryName: 'aws-cdk-staging-pipeline',
       customStack: (scope, _) => {
         const customStack = new CustomStack(scope, 'TestCustomStack');
-        customStack.cfnOutputs.Blubb = { value: 'BlubValue' };
+        customStack.cfnOutputs.Blub = { value: 'BlubValue' };
         return customStack;
       },
       manualApprovals: (_) => true,
