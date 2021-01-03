@@ -10,8 +10,9 @@ describe('Get', () => {
     //   account: 'us-east-1', //process.env.CDK_DEFAULT_ACCOUNT,
     // };
     const app = new core.App();
-    const stack = new core.Stack(app, 'testing-stack');
-    new PipelineStack(stack, 'PipelineStack', {
+    const synthesizer = new core.DefaultStackSynthesizer({ qualifier: 'pipeline-stack' });
+    const stack = new PipelineStack(app, 'PipelineStack', {
+      synthesizer: synthesizer,
       stageAccounts: [{
         account: {
           id: '1233334',
@@ -30,7 +31,7 @@ describe('Get', () => {
 
     describe('successful', () => {
       test('which exist', () => {
-        // expect(stack).toHaveResourceLike('Custom::AWS');
+        expect(stack).toHaveResourceLike('Custom::AutoDeleteBucket');
       });
     });
   });
