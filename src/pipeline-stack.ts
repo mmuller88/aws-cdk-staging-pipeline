@@ -110,6 +110,7 @@ export class PipelineStack extends Stack {
         this,
         `${this.stackName}-${stageAccount.stage}`,
         {
+          stage: stageAccount.stage,
           customStack: props.customStack,
           // customStack: (_scope, account) => {
           //   return props.customStack(this, account);

@@ -5,7 +5,5 @@ export class CustomStack extends core.Stack {
 
   constructor(scope: core.Construct, id: string, props?: core.StackProps) {
     super(scope, id, props);
-
-    new core.CfnOutput(this, 'CommitID', { value: process.env.CODEBUILD_RESOLVED_SOURCE_VERSION || 'not set!' });
   };
 }

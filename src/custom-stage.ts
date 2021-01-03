@@ -1,24 +1,27 @@
-import { CfnOutput, Construct, Stage, StageProps } from '@aws-cdk/core';
+import * core from '@aws-cdk/core';
 import { StageAccount } from './accountConfig';
 import { CustomStack } from './custom-stack';
 
 // import { UIStack } from '../alf-cdk-ui/cdk/ui-stack';
 
 
-export interface CustomStageProps extends StageProps {
+export interface CustomStageProps extends core.StageProps {
+  readonly stage: string;
   // stackProps: CustomStackProps;
-  customStack: (scope: Construct, stageAccount: StageAccount) => CustomStack;
+  customStack: (scope: core.Construct, stageAccount: StageAccount) => CustomStack;
 }
 /**
  * Deployable unit of web service app
  */
-export class CustomStage extends Stage {
-  cfnOutputs: Record<string, CfnOutput> = {};
+export class CustomStage extends core.Stage {
+  cfnOutputs: Record<string, core.CfnOutput> = {};
 
-  constructor(scope: Construct, id: string, props: CustomStageProps, stageAccount: StageAccount) {
+  constructor(scope: core.Construct, id: string, props: CustomStageProps, stageAccount: StageAccount) {
     super(scope, id, props);
 
     const customStack = props.customStack.call(this, this, stageAccount);
+    new core.CfnOutput(customStack, 'Stage', { value: props.stage || 'not set!' });
+    new core.CfnOutput(customStack, 'CommitID', { value: process.env.CODEBUILD_RESOLVED_SOURCE_VERSION || 'not set!' });
 
     // tslint:disable-next-line: forin
     for (const key in customStack.cfnOutputs) {
