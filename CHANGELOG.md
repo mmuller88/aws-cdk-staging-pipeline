@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.7...v0.0.8) (2021-01-03)
+
+
+### Features
+
+* add commit id to custom stack outputs ([d77dc01](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/d77dc013d150bdf5e6a2414e6da4407e7aac1906))
+* add commit id to custom stack outputs ([b24c38a](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/b24c38ad7b8fa5feaedb24a3ee491d35cf01f966))
+
 ### [0.0.7](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.6...v0.0.7) (2021-01-01)
 
 
