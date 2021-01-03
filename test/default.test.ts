@@ -29,7 +29,7 @@ describe('Create', () => {
           repositoryName: 'aws-cdk-staging-pipeline',
           customStack: (scope, _) => {
             customStack = new CustomStack(scope, 'TestCustomStack');
-            customStack.cfnOutputs.Blub = { value: 'BlubValue' };
+            customStack.cfnOutputs.Blub = new core.CfnOutput(customStack, 'OutputBlub', { value: 'BlubValue ' });
             return customStack;
           },
           gitHub: { owner: 'mmuller88', oauthToken: new core.SecretValue('repo-token') },
