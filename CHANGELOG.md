@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.16...v0.0.17) (2021-01-03)
+
+
+### Features
+
+* logs build info more to cfn outputs ([53e5893](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/53e58934e96d5f892b5736e385653e52754ed0a6))
+
 ### [0.0.16](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.15...v0.0.16) (2021-01-03)
 
 
