@@ -143,10 +143,10 @@ export class PipelineStack extends core.Stack {
 
       const useOutputs: Record<string, StackOutput> = {};
 
-      // tslint:disable-next-line: forin
       for (const cfnOutput in customStage.customStack.cfnOutputs) {
+        const output = new core.CfnOutput(customStage.customStack, cfnOutput, customStage.customStack.cfnOutputs[cfnOutput]);
         useOutputs[cfnOutput] = cdkPipeline.stackOutput(
-          customStage.customStack.cfnOutputs[cfnOutput],
+          output,
         );
       }
 

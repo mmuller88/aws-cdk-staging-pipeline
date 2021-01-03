@@ -9,7 +9,7 @@ import * as core from '@aws-cdk/core';
  */
 export class CustomStack extends core.Stack {
   // Necessary to wrap the CfnOutputs and make them available for the testCommands
-  cfnOutputs: Record<string, core.CfnOutput> = {};
+  cfnOutputs: Record<string, core.CfnOutputProps> = {};
 
   constructor(scope: core.Construct, id: string, props?: core.StackProps) {
     super(scope, id, props);
