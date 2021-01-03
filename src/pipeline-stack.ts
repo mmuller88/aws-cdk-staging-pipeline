@@ -124,6 +124,8 @@ export class PipelineStack extends core.Stack {
         stageAccount,
       );
 
+      console.log(`Env: ${JSON.stringify(props.env)}`);
+
       new core.CfnOutput(customStage.customStack, 'Stage', { value: stageAccount.stage || 'not set!' });
       new core.CfnOutput(customStage.customStack, 'CommitID', { value: process.env.CODEBUILD_RESOLVED_SOURCE_VERSION || 'not set!' });
       new core.CfnOutput(customStage.customStack, 'RepoUrl', { value: `https://github.com/${props.gitHub.owner}/${props.repositoryName}` || 'not set!' });
