@@ -111,8 +111,6 @@ export class PipelineStack extends core.Stack {
 
     // todo: add devAccount later
     for (const stageAccount of props.stageAccounts) {
-      // const useValueOutputs2: Record<string, CfnOutput> = {};
-
       const customStage = new CustomStage(
         this,
         `${this.stackName}-${stageAccount.stage}`,
@@ -122,21 +120,20 @@ export class PipelineStack extends core.Stack {
             account: stageAccount.account.id,
             region: stageAccount.account.region,
           },
-          authorDate: repo.variables.authorDate,
         },
         stageAccount,
       );
 
       new core.CfnOutput(customStage.customStack, 'Stage', { value: stageAccount.stage || 'not set!' });
       new core.CfnOutput(customStage.customStack, 'CommitID', { value: process.env.CODEBUILD_RESOLVED_SOURCE_VERSION || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'RepoUrl', { value: process.env.CODEBUILD_SOURCE_REPO_URL || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'WebhookTrigger', { value: process.env.CODEBUILD_WEBHOOK_TRIGGER || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'BranchName', { value: repo.variables.branchName || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'CommitUrl', { value: repo.variables.commitUrl || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'CommitterDate', { value: repo.variables.committerDate || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'CommitMessage', { value: repo.variables.commitMessage || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'RepositoryName', { value: repo.variables.repositoryName || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'AuthorDate', { value: repo.variables.authorDate || 'not set!' });
+      new core.CfnOutput(customStage.customStack, 'RepoUrl', { value: `https://github.com/${props.gitHub.owner}/${props.repositoryName}` || 'not set!' });
+      // new core.CfnOutput(customStage.customStack, 'WebhookTrigger', { value: process.env.CODEBUILD_WEBHOOK_TRIGGER || 'not set!' });
+      new core.CfnOutput(customStage.customStack, 'BranchName', { value: props.branch || 'not set!' });
+      // new core.CfnOutput(customStage.customStack, 'CommitUrl', { value: repo.variables.commitUrl || 'not set!' });
+      // new core.CfnOutput(customStage.customStack, 'CommitterDate', { value: repo.variables.committerDate || 'not set!' });
+      // new core.CfnOutput(customStage.customStack, 'CommitMessage', { value: repo.variables.commitMessage || 'not set!' });
+      // new core.CfnOutput(customStage.customStack, 'RepositoryName', { value: repo.variables.repositoryName || 'not set!' });
+      // new core.CfnOutput(customStage.customStack, 'AuthorDate', { value: repo.variables.authorDate || 'not set!' });
 
       const preprodStage = cdkPipeline.addApplicationStage(customStage, {
         manualApprovals: props.manualApprovals?.call(this, stageAccount),

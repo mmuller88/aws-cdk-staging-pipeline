@@ -1,9 +1,5 @@
 import * as core from '@aws-cdk/core';
 
-// export interface CustomStackProps extends core.StackProps {
-//   readonly authorDate: string;
-// }
-
 /**
  * The Pipeline will automatically append the following CfnOutputs partly token from CodeBuild:
   new core.CfnOutput(customStage.customStack, 'Stage', { value: stageAccount.stage || 'not set!' });
@@ -23,7 +19,5 @@ export class CustomStack extends core.Stack {
 
   constructor(scope: core.Construct, id: string, props?: core.StackProps) {
     super(scope, id, props);
-
-    // new core.CfnOutput(this, 'AuthorDate2', { value: props?.authorDate || 'not set!' });
   };
 }
