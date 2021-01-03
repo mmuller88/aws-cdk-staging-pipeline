@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.22](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.21...v0.0.22) (2021-01-03)
+
+
+### Features
+
+* put cfnOutputs back to custom stack ([438b8d9](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/438b8d9a5998c89aa6c4f03703270201201f7182))
+* put cfnOutputs back to custom stack ([8c798dc](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/8c798dcb25d585ddc0b2cf5cca5b8353e26de89c))
+
 ### [0.0.21](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.20...v0.0.21) (2021-01-03)
 
 
