@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.21](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.20...v0.0.21) (2021-01-03)
+
+
+### Features
+
+* add expected pipeline json for unit tests ([9ad8bb6](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/9ad8bb6651302426ca735d870c88b2f7ecbd4dee))
+* add expected pipeline json for unit tests ([c9ef3e5](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/c9ef3e5fc101c40596e801c75d459bf27c61eaf0))
+* add expected pipeline json for unit tests ([6f25e33](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/6f25e3377b761784cc63fe432d2ec558df3ec29f))
+
 ### [0.0.20](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.19...v0.0.20) (2021-01-03)
 
 
