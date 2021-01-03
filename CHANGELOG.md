@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.11...v0.0.12) (2021-01-03)
+
+
+### Features
+
+* add RepoUrl and Webhook Trigger to cfn output as well ([96b6929](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/96b6929209364a92693f0218ada0f4ac465a1019))
+
 ### [0.0.11](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.10...v0.0.11) (2021-01-03)
 
 
