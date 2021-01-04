@@ -13,10 +13,16 @@ export class IntegTesting {
       env: PIPELINE_ENV,
       stageAccounts: [{
         account: {
-          id: '981237193288',
+          id: '1233334',
           region: 'eu-central-1',
         },
         stage: 'dev',
+      }, {
+        account: {
+          id: '1233334',
+          region: 'eu-central-1',
+        },
+        stage: 'prod',
       }],
       branch: 'master',
       repositoryName: 'aws-cdk-staging-pipeline',
@@ -25,10 +31,9 @@ export class IntegTesting {
         customStack.cfnOutputs.Blub = new core.CfnOutput(customStack, 'OutputBlub', { value: 'BlubValue ' });
         return customStack;
       },
-      manualApprovals: (_) => true,
-      testCommands: (stageAccount) => [
-        `echo "${stageAccount.stage} stage"`,
-        `echo ${stageAccount.account.id} id + ${stageAccount.account.region} region`,
+      manualApprovals: (stageAccount) => stageAccount.stage === 'prod',
+      testCommands: (_) => [
+        'echo $Blub',
       ],
       gitHub: { owner: 'mmuller88', oauthToken: new core.SecretValue('repo-token') },
     });
