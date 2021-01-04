@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.23](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.22...v0.0.23) (2021-01-04)
+
+
+### Features
+
+* add more unite tests ([69da64a](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/69da64ab48a393a1452c3973f5d452f2aab8a61a))
+
 ### [0.0.22](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.21...v0.0.22) (2021-01-03)
 
 
