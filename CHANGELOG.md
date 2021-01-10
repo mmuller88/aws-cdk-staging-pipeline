@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.29](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.28...v0.0.29) (2021-01-10)
+
+
+### Features
+
+* update badge dep ([730b5f3](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/730b5f3837644e53d6779e5e0729c36118f22bb5))
+
 ### [0.0.28](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.27...v0.0.28) (2021-01-10)
 
 
