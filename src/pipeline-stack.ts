@@ -94,7 +94,7 @@ export class PipelineStack extends core.Stack {
     });
 
     if (props.badges?.synthBadge) {
-      new BuildBadge(this, 'BuildBadge', { hideAccountID: 'no' });
+      new BuildBadge(this, 'BuildBadge', { hideAccountID: 'no', defaultProjectName: `${this.stackName}-synth` });
     }
 
     const cdkPipeline = new CdkPipeline(this, 'CdkPipeline', {
