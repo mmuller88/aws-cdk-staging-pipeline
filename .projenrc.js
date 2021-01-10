@@ -10,6 +10,8 @@ const deps = [
   `@aws-cdk/aws-codepipeline-actions@${cdkVersion}`,
   `@aws-cdk/pipelines@${cdkVersion}`,
   `@aws-cdk/assert@${cdkVersion}`,
+  `@aws-cdk/aws-lambda-nodejs@${cdkVersion}`,
+  'aws-cdk-build-badge',
 ];
 
 const project = new TypeScriptProject({

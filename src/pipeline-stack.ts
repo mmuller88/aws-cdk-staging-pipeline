@@ -9,6 +9,7 @@ import {
   StackOutput,
 } from '@aws-cdk/pipelines';
 import { AutoDeleteBucket } from '@mobileposse/auto-delete-bucket';
+import { BuildBadge } from 'aws-cdk-build-badge';
 // import { dependencies } from '../package.json';
 import { StageAccount } from './accountConfig';
 import { CustomStack } from './custom-stack';
@@ -38,6 +39,10 @@ export interface PipelineStackProps extends core.StackProps {
    * If you need a certain build command for the synth action from the CDK Pipeline
    */
   readonly buildCommand?: string;
+
+  readonly badges?: {
+    synthBadge?: boolean;
+  };
   /**
    * Your GitHub credentials
    */
@@ -88,6 +93,10 @@ export class PipelineStack extends core.Stack {
       output: sourceArtifact,
     });
 
+    if (props.badges?.synthBadge) {
+      new BuildBadge(this, 'BuildBadge', { hideAccountID: 'no' });
+    }
+
     const cdkPipeline = new CdkPipeline(this, 'CdkPipeline', {
       // The pipeline name
       // pipelineName: `${this.stackName}-pipeline`,
@@ -99,6 +108,7 @@ export class PipelineStack extends core.Stack {
 
       // How it will be built and synthesized
       synthAction: SimpleSynthAction.standardNpmSynth({
+        projectName: `${this.stackName}-synth`,
         sourceArtifact,
         cloudAssemblyArtifact,
         installCommand: 'yarn install && yarn global add aws-cdk',
