@@ -22,12 +22,12 @@
     "organization": false
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.80.0",
-    "@aws-cdk/aws-codepipeline": "1.80.0",
-    "@aws-cdk/aws-codepipeline-actions": "1.80.0",
-    "@aws-cdk/aws-iam": "1.80.0",
-    "@aws-cdk/core": "1.80.0",
-    "@aws-cdk/pipelines": "1.80.0",
+    "@aws-cdk/assert": "1.83.0",
+    "@aws-cdk/aws-codepipeline": "1.83.0",
+    "@aws-cdk/aws-codepipeline-actions": "1.83.0",
+    "@aws-cdk/aws-iam": "1.83.0",
+    "@aws-cdk/core": "1.83.0",
+    "@aws-cdk/pipelines": "1.83.0",
     "@mobileposse/auto-delete-bucket": "^1.55.0",
     "@types/jest": "^26.0.19",
     "@types/node": "^10.17.0",
@@ -46,12 +46,12 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "@aws-cdk/assert": "1.80.0",
-    "@aws-cdk/aws-codepipeline": "1.80.0",
-    "@aws-cdk/aws-codepipeline-actions": "1.80.0",
-    "@aws-cdk/aws-iam": "1.80.0",
-    "@aws-cdk/core": "1.80.0",
-    "@aws-cdk/pipelines": "1.80.0",
+    "@aws-cdk/assert": "1.83.0",
+    "@aws-cdk/aws-codepipeline": "1.83.0",
+    "@aws-cdk/aws-codepipeline-actions": "1.83.0",
+    "@aws-cdk/aws-iam": "1.83.0",
+    "@aws-cdk/core": "1.83.0",
+    "@aws-cdk/pipelines": "1.83.0",
     "@mobileposse/auto-delete-bucket": "^1.55.0"
   },
   "bundledDependencies": [],

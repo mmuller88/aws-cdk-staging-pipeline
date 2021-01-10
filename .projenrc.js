@@ -1,6 +1,6 @@
 const { TypeScriptProject } = require('projen');
 
-const cdkVersion = '1.80.0';
+const cdkVersion = '1.83.0';
 
 const deps = [
   '@mobileposse/auto-delete-bucket',
