@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.30](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.29...v0.0.30) (2021-01-10)
+
+
+### Features
+
+* set default project name for synth badge ([aa2c587](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/aa2c5879958c276d8c2ea3ce5c7ada42fea7f32a))
+
 ### [0.0.29](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.28...v0.0.29) (2021-01-10)
 
 
