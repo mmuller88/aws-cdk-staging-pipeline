@@ -26,6 +26,7 @@ export class IntegTesting {
       }],
       branch: 'master',
       repositoryName: 'aws-cdk-staging-pipeline',
+      badges: { synthBadge: true },
       customStack: (scope, _) => {
         const customStack = new CustomStack(scope, 'TestCustomStack');
         customStack.cfnOutputs.Blub = new core.CfnOutput(customStack, 'OutputBlub', { value: 'BlubValue ' });

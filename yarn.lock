@@ -1724,10 +1724,10 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-aws-cdk-build-badge@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/aws-cdk-build-badge/-/aws-cdk-build-badge-0.0.5.tgz#cc11932930000633e1a0bfd328ffc55a4e6050cf"
-  integrity sha512-arF5Y35zrEpZTVmpMJobwx19wx/HzdDNRthj6qr+kI0WOpmL26QASNxoAQGxaHVPyqUMNnhJX61xgC8gp+5uZA==
+aws-cdk-build-badge@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/aws-cdk-build-badge/-/aws-cdk-build-badge-0.0.6.tgz#703a079c0f502cdb3b0599a301f0485a20337049"
+  integrity sha512-kKOZPQ0xCEmDxh6DhjNbGHDpl4R1sWFo6b1rTBwYGzzDH+rv2AvNMG25ebLWOvF/HzWiTvgKWEESRR88yeML2w==
   dependencies:
     "@aws-cdk/assert" "1.83.0"
     "@types/aws-lambda" "^8.10.70"
