@@ -107,4 +107,4 @@ app.synth();
 # Thanks To
 
 - The CDK Community cdk-dev.slack.com
-- [Projen](https://github.com/projen/projen) project and the community around i
+- [Projen](https://github.com/projen/projen) project and the community around it
