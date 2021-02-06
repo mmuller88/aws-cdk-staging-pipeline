@@ -24,13 +24,13 @@
     "organization": false
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.83.0",
-    "@aws-cdk/aws-codepipeline": "1.83.0",
-    "@aws-cdk/aws-codepipeline-actions": "1.83.0",
-    "@aws-cdk/aws-iam": "1.83.0",
-    "@aws-cdk/aws-lambda-nodejs": "1.83.0",
-    "@aws-cdk/core": "1.83.0",
-    "@aws-cdk/pipelines": "1.83.0",
+    "@aws-cdk/assert": "1.88.0",
+    "@aws-cdk/aws-codepipeline": "1.88.0",
+    "@aws-cdk/aws-codepipeline-actions": "1.88.0",
+    "@aws-cdk/aws-iam": "1.88.0",
+    "@aws-cdk/aws-lambda-nodejs": "1.88.0",
+    "@aws-cdk/core": "1.88.0",
+    "@aws-cdk/pipelines": "1.88.0",
     "@mobileposse/auto-delete-bucket": "^1.55.0",
     "@types/jest": "^26.0.19",
     "@types/node": "^10.17.0",
@@ -44,19 +44,19 @@
     "jest": "^26.6.3",
     "jest-junit": "^12",
     "json-schema": "^0.2.5",
-    "projen": "^0.12.8",
+    "projen": "^0.16.2",
     "standard-version": "^9.0.0",
     "ts-jest": "^26.4.4",
     "typescript": "^3.9.5"
   },
-  "dependencies": {
-    "@aws-cdk/assert": "1.83.0",
-    "@aws-cdk/aws-codepipeline": "1.83.0",
-    "@aws-cdk/aws-codepipeline-actions": "1.83.0",
-    "@aws-cdk/aws-iam": "1.83.0",
-    "@aws-cdk/aws-lambda-nodejs": "1.83.0",
-    "@aws-cdk/core": "1.83.0",
-    "@aws-cdk/pipelines": "1.83.0",
+  "peerDependencies": {
+    "@aws-cdk/assert": "1.88.0",
+    "@aws-cdk/aws-codepipeline": "1.88.0",
+    "@aws-cdk/aws-codepipeline-actions": "1.88.0",
+    "@aws-cdk/aws-iam": "1.88.0",
+    "@aws-cdk/aws-lambda-nodejs": "1.88.0",
+    "@aws-cdk/core": "1.88.0",
+    "@aws-cdk/pipelines": "1.88.0",
     "@mobileposse/auto-delete-bucket": "^1.55.0",
     "aws-cdk-build-badge": "^0.0.6"
   },
@@ -71,8 +71,18 @@
   "license": "Apache-2.0",
   "version": "0.0.31",
   "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.ts?(x)",
+      "**/?(*.)+(spec|test).ts?(x)"
+    ],
     "clearMocks": true,
     "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "clover",
+      "text"
+    ],
     "coverageDirectory": "coverage",
     "coveragePathIgnorePatterns": [
       "/node_modules/"
@@ -80,9 +90,8 @@
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],
-    "testMatch": [
-      "**/__tests__/**/*.ts?(x)",
-      "**/?(*.)+(spec|test).ts?(x)"
+    "watchPathIgnorePatterns": [
+      "/node_modules/"
     ],
     "reporters": [
       "default",

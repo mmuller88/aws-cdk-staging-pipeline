@@ -1,8 +1,16 @@
 const { TypeScriptProject } = require('projen');
 
-const cdkVersion = '1.83.0';
+const cdkVersion = '1.88.0';
 
 const deps = [
+  // '@types/aws-lambda',
+  // 'aws-lambda',
+  // 'aws-sdk',
+  // 'esbuild@^0',
+  // `@aws-cdk/assert@${cdkVersion}`,
+];
+
+const cdkDeps = [
   '@mobileposse/auto-delete-bucket',
   `@aws-cdk/core@${cdkVersion}`,
   `@aws-cdk/aws-codepipeline@${cdkVersion}`,
@@ -17,20 +25,14 @@ const deps = [
 const project = new TypeScriptProject({
   authorAddress: 'damadden88@googlemail.de',
   authorName: 'martin.mueller',
-  // cdkVersion: '1.80.0',
-  // cdkVersionPinning: true,
+  defaultReleaseBranch: 'master',
   name: 'aws-cdk-staging-pipeline',
   repositoryUrl: 'https://github.com/mmuller88/aws-cdk-staging-pipeline',
-  // cdkDependencies: [
-  //   '@aws-cdk/core',
-  //   '@aws-cdk/aws-codepipeline',
-  //   '@aws-cdk/aws-iam',
-  //   '@aws-cdk/aws-codepipeline-actions',
-  //   '@aws-cdk/pipelines',
-  // ],
+  projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
+  devDeps: [...deps, ...cdkDeps],
   deps: deps,
-  devDeps: deps,
-  // bundledDeps: deps,
+  peerDeps: cdkDeps,
+  bundledDeps: deps,
   releaseToNpm: true,
   // python: {
   //   distName: 'aws-cdk-staging-pipeline',
