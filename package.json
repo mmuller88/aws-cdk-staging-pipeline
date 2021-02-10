@@ -44,7 +44,7 @@
     "jest": "^26.6.3",
     "jest-junit": "^12",
     "json-schema": "^0.3.0",
-    "projen": "^0.16.2",
+    "projen": "^0.16.3",
     "standard-version": "^9.0.0",
     "ts-jest": "^26.5.0",
     "typescript": "^3.9.5"
@@ -69,7 +69,7 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "version": "1.89.0",
+  "version": "1.88.1",
   "jest": {
     "testMatch": [
       "**/__tests__/**/*.ts?(x)",
