@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.89.0](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.32...v1.89.0) (2021-02-10)
+
+
+### Features
+
+* make install command configureable ([7a64fc1](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/7a64fc18e111a1ab5b0422bd7616829b684de135))
+
 ### [0.0.32](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.30...v0.0.32) (2021-02-06)
 
 
