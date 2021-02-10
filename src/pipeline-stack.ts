@@ -39,6 +39,10 @@ export interface PipelineStackProps extends core.StackProps {
    * If you need a certain build command for the synth action from the CDK Pipeline
    */
   readonly buildCommand?: string;
+  /**
+   * If you need a certain install command for the synth action from the CDK Pipeline
+   */
+  readonly installCommand?: string;
 
   readonly badges?: {
     synthBadge?: boolean;
@@ -111,7 +115,7 @@ export class PipelineStack extends core.Stack {
         projectName: `${this.stackName}-synth`,
         sourceArtifact,
         cloudAssemblyArtifact,
-        installCommand: 'yarn install && yarn global add aws-cdk',
+        installCommand: props.installCommand || 'yarn install && yarn global add aws-cdk',
         synthCommand: 'yarn synth',
         // subdirectory: 'cdk',
         // We need a build step to compile the TypeScript Lambda
