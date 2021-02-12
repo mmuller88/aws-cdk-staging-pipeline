@@ -78,6 +78,7 @@ export class PipelineStack extends core.Stack {
 
     const sourceBucket = new AutoDeleteBucket(this, 'PipeBucket', {
       versioned: true,
+      bucketKeyEnabled: true,
     });
 
     const pipeline = new Pipeline(this, 'Pipeline', {
@@ -106,6 +107,7 @@ export class PipelineStack extends core.Stack {
       // pipelineName: `${this.stackName}-pipeline`,
       cloudAssemblyArtifact,
       codePipeline: pipeline,
+      // crossAccountKeys: true,
 
       // Where the source can be found
       sourceAction: repo,
