@@ -81,8 +81,8 @@ export class PipelineStack extends core.Stack {
       removalPolicy: core.RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
       versioned: true,
-      bucketKeyEnabled: true,
-      encryption: s3.BucketEncryption.KMS,
+      // bucketKeyEnabled: true,
+      encryption: s3.BucketEncryption.KMS_MANAGED,
     });
 
     const pipeline = new Pipeline(this, 'Pipeline', {
