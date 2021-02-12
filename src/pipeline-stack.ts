@@ -77,7 +77,9 @@ export class PipelineStack extends core.Stack {
       }
     }
 
-    const sourceBucket = new AutoDeleteBucket(this, 'PipeBucket', {
+    const sourceBucket = new s3.Bucket(this, 'PipeBucket', {
+      removalPolicy: core.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
       versioned: true,
       bucketKeyEnabled: true,
       encryption: s3.BucketEncryption.KMS,
