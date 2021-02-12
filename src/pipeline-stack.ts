@@ -82,7 +82,7 @@ export class PipelineStack extends core.Stack {
       autoDeleteObjects: true,
       versioned: true,
       // bucketKeyEnabled: true,
-      encryption: s3.BucketEncryption.KMS_MANAGED,
+      // encryption: s3.BucketEncryption.KMS_MANAGED,
     });
 
     const pipeline = new Pipeline(this, 'Pipeline', {
@@ -111,7 +111,7 @@ export class PipelineStack extends core.Stack {
       // pipelineName: `${this.stackName}-pipeline`,
       cloudAssemblyArtifact,
       codePipeline: pipeline,
-      // crossAccountKeys: true, test
+      crossAccountKeys: true,
 
       // Where the source can be found
       sourceAction: repo,
