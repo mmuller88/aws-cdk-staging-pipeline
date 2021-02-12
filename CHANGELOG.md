@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.88.4](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v1.88.3...v1.88.4) (2021-02-12)
+
+
+### Bug Fixes
+
+* remove AutoDeleteBucket custom construct ([542a137](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/542a13791ec49cd8eeeb4c7ea94a19d15f183532))
+* remove AutoDeleteBucket custom construct ([d9477d1](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/d9477d1bdfe3bf8f1a14449eeaaf30f218f39ed8))
+
 ### [1.88.3](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v1.88.2...v1.88.3) (2021-02-12)
 
 
