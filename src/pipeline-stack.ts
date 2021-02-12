@@ -1,6 +1,7 @@
 import { Artifact, Pipeline } from '@aws-cdk/aws-codepipeline';
 import { GitHubSourceAction } from '@aws-cdk/aws-codepipeline-actions';
 import { PolicyStatement } from '@aws-cdk/aws-iam';
+import * as s3 from '@aws-cdk/aws-s3';
 import * as core from '@aws-cdk/core';
 import {
   CdkPipeline,
@@ -79,6 +80,7 @@ export class PipelineStack extends core.Stack {
     const sourceBucket = new AutoDeleteBucket(this, 'PipeBucket', {
       versioned: true,
       bucketKeyEnabled: true,
+      encryption: s3.BucketEncryption.KMS,
     });
 
     const pipeline = new Pipeline(this, 'Pipeline', {

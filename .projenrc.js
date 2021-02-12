@@ -15,6 +15,7 @@ const cdkDeps = [
   `@aws-cdk/core@${cdkVersion}`,
   `@aws-cdk/aws-codepipeline@${cdkVersion}`,
   `@aws-cdk/aws-iam@${cdkVersion}`,
+  `@aws-cdk/aws-s3@${cdkVersion}`,
   `@aws-cdk/aws-codepipeline-actions@${cdkVersion}`,
   `@aws-cdk/pipelines@${cdkVersion}`,
   `@aws-cdk/assert@${cdkVersion}`,
