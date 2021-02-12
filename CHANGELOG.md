@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.88.0](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.32...v1.88.0) (2021-02-12)
+
+
+### Features
+
+* enable KMS key ([5942c6e](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/5942c6efa96a5b9c38b55c37615cdf530687e8a8))
+* enable KMS key ([8918043](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/891804318b34ba72e8727d92ff5349709262de54))
+* make install command configureable ([759bba3](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/759bba35486901645bd7ce5c898e1c43e8de2b1a))
+* make install command configureable ([a168d0d](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/a168d0d78b338d30b6f191e1d5769ff00b277e44))
+* make install command configureable ([f63fd8f](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/f63fd8f0af26653042efad784058bd86f184a9e7))
+* make install command configureable ([7a64fc1](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/7a64fc18e111a1ab5b0422bd7616829b684de135))
+
+
+### Bug Fixes
+
+* tag version ([06020e0](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/06020e002f55ee668fc3fc8c89883a5d19568dc2))
+* tag version ([e60aae8](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/e60aae89ed42af8e10ed73d671d25d8268aa4b39))
+* tag version ([e5ea109](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/e5ea10987d01ad2917dcd856d81f7d8a6fee15a8))
+* tag version ([9bbd7c1](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/9bbd7c15c59f399f229a14c4f1dbba87c1f0bc39))
+
 ## [1.89.0](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v1.88.0...v1.89.0) (2021-02-12)
 
 
