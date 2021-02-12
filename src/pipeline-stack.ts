@@ -9,7 +9,7 @@ import {
   SimpleSynthAction,
   StackOutput,
 } from '@aws-cdk/pipelines';
-import { AutoDeleteBucket } from '@mobileposse/auto-delete-bucket';
+// import { AutoDeleteBucket } from '@mobileposse/auto-delete-bucket';
 import { BuildBadge } from 'aws-cdk-build-badge';
 // import { dependencies } from '../package.json';
 import { StageAccount } from './accountConfig';
