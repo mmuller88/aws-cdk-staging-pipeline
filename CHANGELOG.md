@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.89.0](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v1.88.0...v1.89.0) (2021-02-12)
+
+
+### Features
+
+* enable KMS key ([5942c6e](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/5942c6efa96a5b9c38b55c37615cdf530687e8a8))
+* enable KMS key ([8918043](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/891804318b34ba72e8727d92ff5349709262de54))
+
 ## [1.88.0](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v0.0.32...v1.88.0) (2021-02-10)
 
 
