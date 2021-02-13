@@ -1,7 +1,7 @@
-import { Artifact, Pipeline } from '@aws-cdk/aws-codepipeline';
+import { Artifact } from '@aws-cdk/aws-codepipeline';
 import { GitHubSourceAction } from '@aws-cdk/aws-codepipeline-actions';
 import { PolicyStatement } from '@aws-cdk/aws-iam';
-import * as s3 from '@aws-cdk/aws-s3';
+// import * as s3 from '@aws-cdk/aws-s3';
 import * as core from '@aws-cdk/core';
 import {
   CdkPipeline,
@@ -77,18 +77,19 @@ export class PipelineStack extends core.Stack {
       }
     }
 
-    const sourceBucket = new s3.Bucket(this, 'PipeBucket', {
-      removalPolicy: core.RemovalPolicy.DESTROY,
-      autoDeleteObjects: true,
-      versioned: true,
-      // bucketKeyEnabled: true,
-      encryption: s3.BucketEncryption.KMS_MANAGED,
-    });
+    // Removed bucket as there is a bug for cross account use https://github.com/aws/aws-cdk/issues/13027
+    // const sourceBucket = new s3.Bucket(this, 'PipeBucket', {
+    //   removalPolicy: core.RemovalPolicy.DESTROY,
+    //   autoDeleteObjects: true,
+    //   versioned: true,
+    //   // bucketKeyEnabled: true,
+    //   encryption: s3.BucketEncryption.KMS_MANAGED,
+    // });
 
-    const pipeline = new Pipeline(this, 'Pipeline', {
-      artifactBucket: sourceBucket,
-      restartExecutionOnUpdate: true,
-    });
+    // const pipeline = new Pipeline(this, 'Pipeline', {
+    //   artifactBucket: sourceBucket,
+    //   restartExecutionOnUpdate: true,
+    // });
 
     const sourceArtifact = new Artifact();
     const cloudAssemblyArtifact = new Artifact();
@@ -110,8 +111,8 @@ export class PipelineStack extends core.Stack {
       // The pipeline name
       // pipelineName: `${this.stackName}-pipeline`,
       cloudAssemblyArtifact,
-      codePipeline: pipeline,
-      // crossAccountKeys: true,
+      // codePipeline: pipeline,
+      crossAccountKeys: true,
 
       // Where the source can be found
       sourceAction: repo,
