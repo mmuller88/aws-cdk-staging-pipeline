@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.88.6](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v1.88.5...v1.88.6) (2021-02-13)
+
+
+### Bug Fixes
+
+* remove autoremove pipe bucket as there is a bug ([3eaf061](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/3eaf061f6aa7ba25b4c00badce10e72502a1545f))
+* remove autoremove pipe bucket as there is a bug ([90cdc0a](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/90cdc0a0bd922be95a1b615c339aa6b67c76899e))
+
 ### [1.88.5](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v1.88.4...v1.88.5) (2021-02-12)
 
 
