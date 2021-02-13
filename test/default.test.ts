@@ -49,29 +49,29 @@ describe('Create', () => {
       });
 
       test('with manually approval only for prod', () => {
-        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"PipelinePipelineStackprod');
-        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).not.toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"PipelinePipelineStackdev');
+        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"CdkPipelinePipelineStackprodManualApprovalCodePipelineActionRole');
+        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).not.toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"CdkPipelinePipelineStackdevManualApprovalCodePipelineActionRole');
       });
 
       test('with manually approval for dev and prod', () => {
         defaultStackProperties.manualApprovals = () => true;
         stack = new PipelineStack(app, 'PipelineStack2', defaultStackProperties);
-        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"PipelinePipelineStack2dev');
-        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"PipelinePipelineStack2prod');
+        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"CdkPipelinePipelineStack2devManualApprovalCodePipelineActionRole');
+        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"CdkPipelinePipelineStack2prodManualApprovalCodePipelineActionRole');
       });
 
       test('with no manually approval for dev and prod when return false', () => {
         defaultStackProperties.manualApprovals = () => false;
         stack = new PipelineStack(app, 'PipelineStack3', defaultStackProperties);
-        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).not.toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"PipelinePipelineStack3dev');
-        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).not.toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"PipelinePipelineStack3prod');
+        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).not.toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"CdkPipelinePipelineStack3devManualApprovalCodePipelineActionRole');
+        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).not.toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"CdkPipelinePipelineStack3prodManualApprovalCodePipelineActionRole');
       });
 
       test('with no manually approval for dev and prod as default', () => {
         defaultStackProperties.manualApprovals = undefined;
         stack = new PipelineStack(app, 'PipelineStack4', defaultStackProperties);
-        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).not.toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"PipelinePipelineStack4dev');
-        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).not.toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"PipelinePipelineStack4prod');
+        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).not.toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"CdkPipelinePipelineStack4devManualApprovalCodePipelineActionRole');
+        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).not.toContain('ManualApproval\",\"RoleArn\":{\"Fn::GetAtt\":[\"CdkPipelinePipelineStack4prodManualApprovalCodePipelineActionRole');
       });
     });
 
