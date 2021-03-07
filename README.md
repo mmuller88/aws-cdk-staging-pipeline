@@ -31,6 +31,22 @@ I am excited to your feedback and would be happy to see PRs. Enjoy.
 
 Taken from https://github.com/mmuller88/aws-api-gw-petstore-example
 
+Import needed dependencies:
+
+```ts
+cdkDependencies: [
+   '@aws-cdk/aws-codepipeline',
+   '@aws-cdk/aws-codepipeline-actions',
+   '@aws-cdk/pipelines',
+   '@aws-cdk/aws-lambda-nodejs',
+]
+
+deps: [
+   'aws-cdk-staging-pipeline',
+   'aws-cdk-build-badge',
+ ],
+```
+
 ```ts
 import * as core from '@aws-cdk/core';
 import { PipelineStack } from 'aws-cdk-staging-pipeline';

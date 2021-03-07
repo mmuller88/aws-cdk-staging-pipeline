@@ -1,6 +1,6 @@
 const { TypeScriptProject } = require('projen');
 
-const cdkVersion = '1.88.0';
+const cdkVersion = '1.92.0';
 
 const deps = [
   // '@types/aws-lambda',
@@ -49,9 +49,5 @@ const project = new TypeScriptProject({
 
 project.setScript('deploy', 'cdk deploy');
 project.setScript('destroy', 'cdk destroy');
-
-const common_exclude = ['cdk.out'];
-project.npmignore.exclude(...common_exclude);
-project.gitignore.exclude(...common_exclude);
 
 project.synth();

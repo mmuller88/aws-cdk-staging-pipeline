@@ -1,0 +1,86 @@
+{
+  "version": "7.0.0",
+  "artifacts": {
+    "PipelineStackPipelineStackprodTestCustomStack78675A32.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "PipelineStackPipelineStackprodTestCustomStack78675A32.assets.json",
+        "requiresBootstrapStackVersion": 4
+      }
+    },
+    "PipelineStackPipelineStackprodTestCustomStack78675A32": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://1233334/eu-central-1",
+      "properties": {
+        "templateFile": "PipelineStackPipelineStackprodTestCustomStack78675A32.template.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::1233334:role/cdk-hnb659fds-deploy-role-1233334-eu-central-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::1233334:role/cdk-hnb659fds-cfn-exec-role-1233334-eu-central-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-1233334-eu-central-1/392c253a05b956914d6b9488bb8e21bd2cb4c7329bff4609b5bcb036abe0125f",
+        "requiresBootstrapStackVersion": 4,
+        "additionalDependencies": [
+          "PipelineStackPipelineStackprodTestCustomStack78675A32.assets"
+        ],
+        "stackName": "PipelineStack-prod-TestCustomStack"
+      },
+      "dependencies": [
+        "PipelineStackPipelineStackprodTestCustomStack78675A32.assets"
+      ],
+      "metadata": {
+        "/PipelineStack/PipelineStack-prod/TestCustomStack/OutputBlub": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OutputBlub"
+          }
+        ],
+        "/PipelineStack/PipelineStack-prod/TestCustomStack/Stage": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Stage"
+          }
+        ],
+        "/PipelineStack/PipelineStack-prod/TestCustomStack/CommitID": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CommitID"
+          }
+        ],
+        "/PipelineStack/PipelineStack-prod/TestCustomStack/RepoUrl": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RepoUrl"
+          }
+        ],
+        "/PipelineStack/PipelineStack-prod/TestCustomStack/BranchName": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BranchName"
+          }
+        ],
+        "/PipelineStack/PipelineStack-prod/TestCustomStack/BuildUrl": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BuildUrl"
+          }
+        ],
+        "/PipelineStack/PipelineStack-prod/TestCustomStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/PipelineStack/PipelineStack-prod/TestCustomStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/PipelineStack/PipelineStack-prod/TestCustomStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      }
+    }
+  }
+}
