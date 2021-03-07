@@ -2,82 +2,82 @@
   "dependencies": [
     {
       "name": "@aws-cdk/assert",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/assert",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/aws-codepipeline-actions",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/aws-codepipeline-actions",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/aws-codepipeline",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/aws-codepipeline",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/aws-iam",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/aws-iam",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/aws-lambda-nodejs",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/aws-lambda-nodejs",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/aws-s3",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/aws-s3",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/core",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/core",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/pipelines",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/pipelines",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "build"
     },
     {
@@ -99,12 +99,10 @@
     },
     {
       "name": "@typescript-eslint/eslint-plugin",
-      "version": "^4.3.0",
       "type": "build"
     },
     {
       "name": "@typescript-eslint/parser",
-      "version": "^4.3.0",
       "type": "build"
     },
     {
@@ -146,12 +144,12 @@
     },
     {
       "name": "projen",
-      "version": "^0.16.5",
+      "version": "^0.16.36",
       "type": "build"
     },
     {
       "name": "standard-version",
-      "version": "^9.0.0",
+      "version": "^9",
       "type": "build"
     },
     {
@@ -160,47 +158,46 @@
     },
     {
       "name": "typescript",
-      "version": "^3.9.5",
       "type": "build"
     },
     {
       "name": "@aws-cdk/assert",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/aws-codepipeline-actions",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/aws-codepipeline",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/aws-iam",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/aws-lambda-nodejs",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/aws-s3",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/core",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/pipelines",
-      "version": "1.88.0",
+      "version": "1.92.0",
       "type": "peer"
     },
     {
