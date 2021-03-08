@@ -35,16 +35,10 @@ Import needed dependencies:
 
 ```ts
 cdkDependencies: [
-   '@aws-cdk/aws-codepipeline',
-   '@aws-cdk/aws-codepipeline-actions',
-   '@aws-cdk/pipelines',
-   '@aws-cdk/aws-lambda-nodejs',
-]
-
-deps: [
-   'aws-cdk-staging-pipeline',
-   'aws-cdk-build-badge',
- ],
+  '@aws-cdk/aws-codepipeline',
+  '@aws-cdk/aws-codepipeline-actions',
+  '@aws-cdk/pipelines',
+];
 ```
 
 ```ts
