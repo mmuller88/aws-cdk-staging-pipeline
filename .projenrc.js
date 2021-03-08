@@ -11,7 +11,7 @@ const deps = [
 ];
 
 const cdkDeps = [
-  '@mobileposse/auto-delete-bucket',
+  // '@mobileposse/auto-delete-bucket',
   `@aws-cdk/core@${cdkVersion}`,
   `@aws-cdk/aws-codepipeline@${cdkVersion}`,
   `@aws-cdk/aws-iam@${cdkVersion}`,
@@ -19,8 +19,8 @@ const cdkDeps = [
   `@aws-cdk/aws-codepipeline-actions@${cdkVersion}`,
   `@aws-cdk/pipelines@${cdkVersion}`,
   `@aws-cdk/assert@${cdkVersion}`,
-  `@aws-cdk/aws-lambda-nodejs@${cdkVersion}`,
-  'aws-cdk-build-badge',
+  // `@aws-cdk/aws-lambda-nodejs@${cdkVersion}`,
+  // 'aws-cdk-build-badge',
 ];
 
 const project = new TypeScriptProject({

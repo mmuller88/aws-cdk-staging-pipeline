@@ -10,7 +10,7 @@ import {
   StackOutput,
 } from '@aws-cdk/pipelines';
 // import { AutoDeleteBucket } from '@mobileposse/auto-delete-bucket';
-import { BuildBadge } from 'aws-cdk-build-badge';
+// import { BuildBadge } from 'aws-cdk-build-badge';
 // import { dependencies } from '../package.json';
 import { StageAccount } from './accountConfig';
 import { CustomStack } from './custom-stack';
@@ -103,9 +103,9 @@ export class PipelineStack extends core.Stack {
       output: sourceArtifact,
     });
 
-    if (props.badges?.synthBadge) {
-      new BuildBadge(this, 'BuildBadge', { hideAccountID: 'no', defaultProjectName: `${this.stackName}-synth` });
-    }
+    // if (props.badges?.synthBadge) {
+    //   new BuildBadge(this, 'BuildBadge', { hideAccountID: 'no', defaultProjectName: `${this.stackName}-synth` });
+    // }
 
     const cdkPipeline = new CdkPipeline(this, 'CdkPipeline', {
       // The pipeline name

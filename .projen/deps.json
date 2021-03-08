@@ -41,16 +41,6 @@
       "type": "build"
     },
     {
-      "name": "@aws-cdk/aws-lambda-nodejs",
-      "version": "1.92.0",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/aws-lambda-nodejs",
-      "version": "1.92.0",
-      "type": "build"
-    },
-    {
       "name": "@aws-cdk/aws-s3",
       "version": "1.92.0",
       "type": "build"
@@ -78,14 +68,6 @@
     {
       "name": "@aws-cdk/pipelines",
       "version": "1.92.0",
-      "type": "build"
-    },
-    {
-      "name": "@mobileposse/auto-delete-bucket",
-      "type": "build"
-    },
-    {
-      "name": "@mobileposse/auto-delete-bucket",
       "type": "build"
     },
     {
@@ -103,14 +85,6 @@
     },
     {
       "name": "@typescript-eslint/parser",
-      "type": "build"
-    },
-    {
-      "name": "aws-cdk-build-badge",
-      "type": "build"
-    },
-    {
-      "name": "aws-cdk-build-badge",
       "type": "build"
     },
     {
@@ -181,11 +155,6 @@
       "type": "peer"
     },
     {
-      "name": "@aws-cdk/aws-lambda-nodejs",
-      "version": "1.92.0",
-      "type": "peer"
-    },
-    {
       "name": "@aws-cdk/aws-s3",
       "version": "1.92.0",
       "type": "peer"
@@ -198,14 +167,6 @@
     {
       "name": "@aws-cdk/pipelines",
       "version": "1.92.0",
-      "type": "peer"
-    },
-    {
-      "name": "@mobileposse/auto-delete-bucket",
-      "type": "peer"
-    },
-    {
-      "name": "aws-cdk-build-badge",
       "type": "peer"
     }
   ],
