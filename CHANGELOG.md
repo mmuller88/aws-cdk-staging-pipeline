@@ -10,6 +10,19 @@ All notable changes to this project will be documented in this file. See [standa
 * update cdk ([d3ef28d](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/d3ef28da3bc8bd6f0e6c820afc9fbaaceef7d3f1))
 * update cdk ([e83a5df](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/e83a5df6eb5cd5ee8ea6e58bd85849289883a56b))
 * update cdk ([d1a4aaa](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/d1a4aaa10d0da7aae34870a9a87993933c0ef905))
+* update cdk and remove pipeline badge ([cb68c8a](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/cb68c8a7e84341bf0fdc9bbd610297e4be109bdc))
+* update cdk and remove pipeline badge ([e0adc18](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/e0adc18a83dd15b6c13b84b33dac5ef9eb256887))
+* update cdk and remove pipeline badge ([c8f439a](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/c8f439aa39936977c2973efe54c031cf284dc3af))
+* update cdk and remove pipeline badge ([ef4cbc0](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/ef4cbc04cd0ddd1233a31834e30d57cb8933693e))
+
+## [1.92.0](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v1.88.6...v1.92.0) (2021-03-08)
+
+
+### Features
+
+* update cdk ([d3ef28d](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/d3ef28da3bc8bd6f0e6c820afc9fbaaceef7d3f1))
+* update cdk ([e83a5df](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/e83a5df6eb5cd5ee8ea6e58bd85849289883a56b))
+* update cdk ([d1a4aaa](https://github.com/mmuller88/aws-cdk-staging-pipeline/commit/d1a4aaa10d0da7aae34870a9a87993933c0ef905))
 
 ### [1.88.6](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v1.88.5...v1.88.6) (2021-02-13)
 
