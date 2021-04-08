@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.92.2](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v1.92.1...v1.92.2) (2021-04-08)
+
 ### [1.92.1](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v1.92.0...v1.92.1) (2021-03-08)
 
 ## [1.92.0](https://github.com/mmuller88/aws-cdk-staging-pipeline/compare/v1.88.6...v1.92.0) (2021-03-08)
