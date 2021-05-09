@@ -21,7 +21,9 @@ jobs:
           grep '"tag_name":' |
           sed -E 's/.*"v([^"]+)".*/\1/')" >> $GITHUB_ENV
       - name: Synthesize project files
-        run: CDK_VERSION=${{ steps.extract_branch.outputs.branch }} npx projen
+        run: |-
+          npm install --save projen
+          CDK_VERSION=$CDK_VERSION npx projen
       - name: Push branch
         run: |- 
           git checkout -b bump/$CDK_VERSION
