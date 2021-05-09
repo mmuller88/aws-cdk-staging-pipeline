@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
       - name: Fetch CDK versions
         run: |-
-          "CDK_VERSION=$(curl --silent "https://api.github.com/repos/aws/aws-cdk/releases/latest" |
+          echo "CDK_VERSION=$(curl --silent "https://api.github.com/repos/aws/aws-cdk/releases/latest" |
           grep '"tag_name":' |
           sed -E 's/.*"([^"]+)".*/\1/')" >> $GITHUB_ENV
       - name: Push branch
