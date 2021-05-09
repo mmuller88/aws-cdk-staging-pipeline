@@ -26,29 +26,3 @@ jobs:
         run: |- 
           git checkout -b bump/$CDK_VERSION
           git push -u origin bump/$CDK_VERSION
-      # - name: Anti-tamper check
-      #   run: git diff --ignore-space-at-eol --exit-code
-      # - name: Set git identity
-      #   run: |-
-      #     git config user.name "Automation"
-      #     git config user.email "github-actions@github.com"
-      # - name: Check for new commits
-      #   id: git_remote
-      #   run: echo ::set-output name=latest_commit::"$(git ls-remote origin -h ${{
-      #     github.ref }} | cut -f1)"
-      # - name: Create release
-      #   if: ${{ steps.git_remote.outputs.latest_commit == github.sha }}
-      #   run: gh release create v$(node -p "require('./package.json').version") -F
-      #     .changelog.tmp.md -t v$(node -p "require('./package.json').version")
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Unbump
-      #   run: npx projen unbump
-      # - name: Upload artifact
-      #   if: ${{ steps.git_remote.outputs.latest_commit == github.sha }}
-      #   uses: actions/upload-artifact@v2.1.1
-      #   with:
-      #     name: dist
-      #     path: dist
-      # - name: Anti-tamper check
-      #   run: git diff --ignore-space-at-eol --exit-code
