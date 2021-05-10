@@ -1,42 +1,50 @@
 name: cdkversioncheck
 on:
+  # schedule:
+  #   - cron:  '0 4 * * *'
   push:
     branches:
       - master
-  workflow_dispatch: {}
+
 jobs:
   check:
     runs-on: ubuntu-latest
     env:
-      CI: "true"
-      RELEASE: "true"
+      CI: "false"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Fetch CDK versions
+      - name: Set CDK version manually
         run: |-
-          echo "CDK_VERSION=$(curl --silent "https://api.github.com/repos/aws/aws-cdk/releases/latest" |
-          grep '"tag_name":' |
-          sed -E 's/.*"v([^"]+)".*/\1/')" >> $GITHUB_ENV
+          echo "CDK_VERSION=1.99.0" >> $GITHUB_ENV
+      # - name: Fetch CDK version
+      #   run: |-
+      #     echo "CDK_VERSION=$(curl --silent "https://api.github.com/repos/aws/aws-cdk/releases/latest" |
+      #     grep '"tag_name":' |
+      #     sed -E 's/.*"v([^"]+)".*/\1/')" >> $GITHUB_ENV
       - name: Synthesize project files
+        continue-on-error: true
         run: |-
           yarn add projen
-          CDK_VERSION=$CDK_VERSION npx projen
-      - name: Push branch
-        run: |- 
-          git checkout -b bump/$CDK_VERSION
-          git push -u origin bump/$CDK_VERSION
+          echo "${{ env.CDK_VERSION }}"
+          sed -i "3s/.*/const cdkVersion = '${{ env.CDK_VERSION }}';/" .projenrc.js
+          npx projen
       - name: Set git identity
         run: |-
           git config user.name "Auto-bump"
           git config user.email "github-actions@github.com"
+      - name: Push branch
+        run: |- 
+          git checkout -b bump/${{ env.CDK_VERSION }}
+          git diff --exit-code || ((git add package.json yarn.lock .projen/deps.json .projenrc.js) && (git commit -m "Testing CDK version to ${{ env.CDK_VERSION }}" && git push -u origin bump/${{ env.CDK_VERSION }}))
       - name: pull-request
         uses: repo-sync/pull-request@v2
         with:
-          source_branch: bump/$CDK_VERSION
-          pr_title: Testing CDK version to $CDK_VERSION
+          source_branch: bump/${{ env.CDK_VERSION }}
+          pr_title: Testing CDK version to ${{ env.CDK_VERSION }}
+          pr_label: "cdk-version-test"  
           destination_branch: "master"
           github_token: ${{ secrets.PUSHABLE_GITHUB_TOKEN }}
     container:
