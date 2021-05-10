@@ -1,6 +1,8 @@
 [![NPM version](https://badge.fury.io/js/aws-cdk-staging-pipeline.svg)](https://badge.fury.io/js/aws-cdk-staging-pipeline)
 ![Release](https://github.com/mmuller88/aws-cdk-staging-pipeline/workflows/Release/badge.svg)
 
+[tested cdk versions](https://github.com/mmuller88/aws-cdk-staging-pipeline/pulls?q=is%3Apr+is%3Aopen+label%3Acdk-version-test)
+
 # aws-cdk-staging-pipeline
 
 An AWS CDK Construct with utilizing the CDK Pipeline and with focus on abstraction with use of higher order functions to hide more details of the staging pipeline.
