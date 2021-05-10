@@ -1,10 +1,10 @@
 name: cdkversioncheck
 on:
-  schedule:
-    - cron:  '0 4 * * *'
-  # push:
-  #   branches:
-  #     - master
+  # schedule:
+  #   - cron:  '0 4 * * *'
+  push:
+    branches:
+      - master
 
 jobs:
   check:
@@ -16,14 +16,14 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      # - name: Set CDK version manually
-      #   run: |-
-      #     echo "CDK_VERSION=1.99.0" >> $GITHUB_ENV
-      - name: Fetch CDK version
+      - name: Set CDK version manually
         run: |-
-          echo "CDK_VERSION=$(curl --silent "https://api.github.com/repos/aws/aws-cdk/releases/latest" |
-          grep '"tag_name":' |
-          sed -E 's/.*"v([^"]+)".*/\1/')" >> $GITHUB_ENV
+          echo "CDK_VERSION=1.100.0" >> $GITHUB_ENV
+      # - name: Fetch CDK version
+      #   run: |-
+      #     echo "CDK_VERSION=$(curl --silent "https://api.github.com/repos/aws/aws-cdk/releases/latest" |
+      #     grep '"tag_name":' |
+      #     sed -E 's/.*"v([^"]+)".*/\1/')" >> $GITHUB_ENV
       - name: Synthesize project files
         continue-on-error: true
         run: |-
