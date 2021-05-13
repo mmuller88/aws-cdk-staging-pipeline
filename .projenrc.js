@@ -1,6 +1,6 @@
 const { TypeScriptProject } = require('projen');
 
-const cdkVersion = process.env.CDK_VERSION || '1.97.0';
+const cdkVersion = '2.0.0-rc.3';
 
 const deps = [
   // '@types/aws-lambda',
