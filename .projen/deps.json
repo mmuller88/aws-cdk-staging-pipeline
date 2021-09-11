@@ -6,22 +6,7 @@
       "type": "build"
     },
     {
-      "name": "@aws-cdk/assert",
-      "version": "1.122.0",
-      "type": "build"
-    },
-    {
       "name": "@aws-cdk/aws-codepipeline-actions",
-      "version": "1.122.0",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/aws-codepipeline-actions",
-      "version": "1.122.0",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/aws-codepipeline",
       "version": "1.122.0",
       "type": "build"
     },
@@ -36,32 +21,12 @@
       "type": "build"
     },
     {
-      "name": "@aws-cdk/aws-iam",
-      "version": "1.122.0",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/aws-s3",
-      "version": "1.122.0",
-      "type": "build"
-    },
-    {
       "name": "@aws-cdk/aws-s3",
       "version": "1.122.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/core",
-      "version": "1.122.0",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/core",
-      "version": "1.122.0",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/pipelines",
       "version": "1.122.0",
       "type": "build"
     },
@@ -122,13 +87,7 @@
       "type": "build"
     },
     {
-      "name": "npm-check-updates",
-      "version": "^11",
-      "type": "build"
-    },
-    {
       "name": "projen",
-      "version": "^0.17.95",
       "type": "build"
     },
     {
