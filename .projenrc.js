@@ -1,6 +1,6 @@
 const { TypeScriptProject } = require('projen');
 
-const cdkVersion = process.env.CDK_VERSION || '1.97.0';
+const cdkVersion = process.env.CDK_VERSION || '1.122.0';
 
 const deps = [
   // '@types/aws-lambda',
@@ -39,12 +39,7 @@ const project = new TypeScriptProject({
   //   distName: 'aws-cdk-staging-pipeline',
   //   module: 'aws_cdk_staging_pipeline',
   // },
-  keywords: [
-    'cdk',
-    'aws',
-    'pipeline',
-    'staging',
-  ],
+  keywords: ['cdk', 'aws', 'pipeline', 'staging'],
 });
 
 project.setScript('deploy', 'cdk deploy');
