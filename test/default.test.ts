@@ -1,6 +1,7 @@
 import { SynthUtils } from '@aws-cdk/assert';
-import * as core from '@aws-cdk/core';
 import '@aws-cdk/assert/jest';
+import { CfnOutput, SecretValue } from 'aws-cdk-lib';
+import { Construct } from 'constructs';
 import { StageAccount } from '../src/accountConfig';
 import { CustomStack } from '../src/custom-stack';
 import { PipelineStack } from '../src/pipeline-stack';
@@ -23,16 +24,16 @@ let defaultStackProperties: any = {
   }],
   branch: 'master',
   repositoryName: 'aws-cdk-staging-pipeline',
-  customStack: (scope: core.Construct) => {
+  customStack: (scope: Construct) => {
     const customStack = new CustomStack(scope, 'TestCustomStack');
-    customStack.cfnOutputs.Blub = new core.CfnOutput(customStack, 'OutputBlub', { value: 'BlubValue ' });
+    customStack.cfnOutputs.Blub = new CfnOutput(customStack, 'OutputBlub', { value: 'BlubValue ' });
     return customStack;
   },
   testCommands: () => [
     'echo $Blub',
   ],
   manualApprovals: (stageAccount: StageAccount) => stageAccount.stage === 'prod',
-  gitHub: { owner: 'mmuller88', oauthToken: new core.SecretValue('repo-token') },
+  gitHub: { owner: 'mmuller88', oauthToken: new SecretValue('repo-token') },
 };
 
 describe('Create', () => {
@@ -88,7 +89,7 @@ describe('Create', () => {
               const customStack = new CustomStack(scope, 'TestCustomStack');
               return customStack;
             },
-            gitHub: { owner: 'mmuller88', oauthToken: new core.SecretValue('repo-token') },
+            gitHub: { owner: 'mmuller88', oauthToken: new SecretValue('repo-token') },
           });
         }).toThrowError();
       });
@@ -115,7 +116,7 @@ describe('Create', () => {
               const customStack = new CustomStack(scope, 'TestCustomStack');
               return customStack;
             },
-            gitHub: { owner: 'mmuller88', oauthToken: new core.SecretValue('repo-token') },
+            gitHub: { owner: 'mmuller88', oauthToken: new SecretValue('repo-token') },
           });
         }).toThrowError();
       });

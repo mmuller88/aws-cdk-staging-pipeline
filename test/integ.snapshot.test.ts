@@ -1,4 +1,3 @@
-import '@aws-cdk/assert/jest';
 // import { SynthUtils } from '@aws-cdk/assert';
 import { IntegTesting } from './integ.default';
 

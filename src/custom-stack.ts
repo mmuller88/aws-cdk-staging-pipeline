@@ -1,4 +1,5 @@
-import * as core from '@aws-cdk/core';
+import { CfnOutput, Stack, StackProps } from 'aws-cdk-lib';
+import { Construct } from 'constructs';
 
 /**
  * The Pipeline will automatically append the following CfnOutputs partly token from CodeBuild:
@@ -8,14 +9,14 @@ import * as core from '@aws-cdk/core';
   new core.CfnOutput(customStage.customStack, 'BranchName', { value: props.branch || 'not set!' });
   new core.CfnOutput(customStage.customStack, 'BuildUrl', { value: process.env.CODEBUILD_BUILD_URL || 'not set!' });
  */
-export class CustomStack extends core.Stack {
+export class CustomStack extends Stack {
 
   /**
    * Necessary to wrap the CfnOutputs and make them available for the testCommands
    */
-  cfnOutputs: Record<string, core.CfnOutput> = {};
+  cfnOutputs: Record<string, CfnOutput> = {};
 
-  constructor(scope: core.Construct, id: string, props?: core.StackProps) {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
   };
 }

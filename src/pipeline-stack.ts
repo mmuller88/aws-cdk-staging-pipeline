@@ -1,28 +1,21 @@
-import { Artifact } from '@aws-cdk/aws-codepipeline';
-import { GitHubSourceAction } from '@aws-cdk/aws-codepipeline-actions';
-import { PolicyStatement } from '@aws-cdk/aws-iam';
-// import * as s3 from '@aws-cdk/aws-s3';
-import * as core from '@aws-cdk/core';
-import {
-  CdkPipeline,
-  ShellScriptAction,
-  SimpleSynthAction,
-  StackOutput,
-} from '@aws-cdk/pipelines';
-// import { AutoDeleteBucket } from '@mobileposse/auto-delete-bucket';
-// import { BuildBadge } from 'aws-cdk-build-badge';
-// import { dependencies } from '../package.json';
+import { Stack, StackProps, SecretValue, CfnOutput } from 'aws-cdk-lib';
+import { Artifact } from 'aws-cdk-lib/lib/aws-codepipeline';
+import { GitHubSourceAction } from 'aws-cdk-lib/lib/aws-codepipeline-actions';
+import { PolicyStatement } from 'aws-cdk-lib/lib/aws-iam';
+import { CdkPipeline, ShellScriptAction, SimpleSynthAction, StackOutput } from 'aws-cdk-lib/lib/pipelines';
+import { Construct } from 'constructs';
+
+
 import { StageAccount } from './accountConfig';
 import { CustomStack } from './custom-stack';
 import { CustomStage } from './custom-stage';
-
-export interface PipelineStackProps extends core.StackProps {
+export interface PipelineStackProps extends StackProps {
   /**
    * The stack you want to be managed with the pipeline.
    * @param scope it the parent construct.
    * @param stageAccount the stage account from the current pipeline stage. You can use than stageAccount.stage or stageAccount.account.id or stageAccount.region
    */
-  readonly customStack: (scope: core.Construct, stageAccount: StageAccount) => CustomStack;
+  readonly customStack: (scope: Construct, stageAccount: StageAccount) => CustomStack;
   // customStack: CustomStack;
   /**
    * Array of staging accounts. The order of the StageAccounts in the array determines the order of the pipeline.
@@ -51,7 +44,7 @@ export interface PipelineStackProps extends core.StackProps {
   /**
    * Your GitHub credentials
    */
-  readonly gitHub: { owner: string; oauthToken: core.SecretValue };
+  readonly gitHub: { owner: string; oauthToken: SecretValue };
   /**
    * Higher order function to determine if your stage shall be approved manually. E.g. if (stageAccount.stage === 'prod') return true
    * @default false
@@ -63,8 +56,8 @@ export interface PipelineStackProps extends core.StackProps {
   readonly testCommands?: (stageAccount: StageAccount) => string[];
 }
 
-export class PipelineStack extends core.Stack {
-  constructor(parent: core.Construct, id: string, props: PipelineStackProps) {
+export class PipelineStack extends Stack {
+  constructor(parent: Construct, id: string, props: PipelineStackProps) {
     super(parent, id, props);
 
     if (props.stageAccounts.length === 0) {
@@ -146,11 +139,11 @@ export class PipelineStack extends core.Stack {
 
       // console.log(`Env: ${JSON.stringify(process.env)}`);
 
-      new core.CfnOutput(customStage.customStack, 'Stage', { value: stageAccount.stage || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'CommitID', { value: process.env.CODEBUILD_RESOLVED_SOURCE_VERSION || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'RepoUrl', { value: `https://github.com/${props.gitHub.owner}/${props.repositoryName}` || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'BranchName', { value: props.branch || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'BuildUrl', { value: process.env.CODEBUILD_BUILD_URL || 'not set!' });
+      new CfnOutput(customStage.customStack, 'Stage', { value: stageAccount.stage || 'not set!' });
+      new CfnOutput(customStage.customStack, 'CommitID', { value: process.env.CODEBUILD_RESOLVED_SOURCE_VERSION || 'not set!' });
+      new CfnOutput(customStage.customStack, 'RepoUrl', { value: `https://github.com/${props.gitHub.owner}/${props.repositoryName}` || 'not set!' });
+      new CfnOutput(customStage.customStack, 'BranchName', { value: props.branch || 'not set!' });
+      new CfnOutput(customStage.customStack, 'BuildUrl', { value: process.env.CODEBUILD_BUILD_URL || 'not set!' });
 
       // unwrap CustomStack cfnOutputs for using in useOutputs for test action
       const useOutputs: Record<string, StackOutput> = {};

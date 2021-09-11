@@ -1,10 +1,10 @@
-import * as core from '@aws-cdk/core';
+import { CfnOutput, SecretValue, Stack } from 'aws-cdk-lib';
 import { CustomStack } from '../src/custom-stack';
 import { PipelineStack } from '../src/index';
 import { PIPELINE_ENV, TestApp } from './testutil';
 
 export class IntegTesting {
-  readonly stack: core.Stack[];
+  readonly stack: Stack[];
   constructor() {
     const app = new TestApp();
 
@@ -29,14 +29,14 @@ export class IntegTesting {
       badges: { synthBadge: true },
       customStack: (scope, _) => {
         const customStack = new CustomStack(scope, 'TestCustomStack');
-        customStack.cfnOutputs.Blub = new core.CfnOutput(customStack, 'OutputBlub', { value: 'BlubValue ' });
+        customStack.cfnOutputs.Blub = new CfnOutput(customStack, 'OutputBlub', { value: 'BlubValue ' });
         return customStack;
       },
       manualApprovals: (stageAccount) => stageAccount.stage === 'prod',
       testCommands: (_) => [
         'echo $Blub',
       ],
-      gitHub: { owner: 'mmuller88', oauthToken: new core.SecretValue('repo-token') },
+      gitHub: { owner: 'mmuller88', oauthToken: new SecretValue('repo-token') },
     });
 
     this.stack = [stack];
