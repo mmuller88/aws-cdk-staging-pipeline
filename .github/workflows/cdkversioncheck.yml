@@ -1,7 +1,7 @@
 name: cdkversioncheck
 on:
   schedule:
-    - cron:  '0 4 * * *'
+    - cron: '0 4 * * *'
   # push:
   #   branches:
   #     - master
@@ -10,10 +10,10 @@ jobs:
   check:
     runs-on: ubuntu-latest
     env:
-      CI: "false"
+      CI: 'false'
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       # - name: Set CDK version manually
@@ -36,7 +36,7 @@ jobs:
           git config user.name "Auto-bump"
           git config user.email "github-actions@github.com"
       - name: Push branch
-        run: |- 
+        run: |-
           git checkout -b bump/${{ env.CDK_VERSION }}
           git diff --exit-code || ((git add package.json yarn.lock .projen/deps.json .projenrc.js) && (git commit -m "Testing CDK version to ${{ env.CDK_VERSION }}" && git push -u origin bump/${{ env.CDK_VERSION }}))
       - name: pull-request
@@ -44,8 +44,8 @@ jobs:
         with:
           source_branch: bump/${{ env.CDK_VERSION }}
           pr_title: Testing CDK version to ${{ env.CDK_VERSION }}
-          pr_label: "cdk-version-test"  
-          destination_branch: "master"
+          pr_label: 'cdk-version-test'
+          destination_branch: 'master'
           github_token: ${{ secrets.PUSHABLE_GITHUB_TOKEN }}
     container:
       image: jsii/superchain
