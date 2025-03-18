@@ -21,6 +21,7 @@ const project = new typescript.TypeScriptProject({
     `@aws-cdk/aws-iam@${cdkVersion}`,
     `@aws-cdk/pipelines@${cdkVersion}`,
     `@aws-cdk/assert@${cdkVersion}`,
+    `@aws-cdk/core@${cdkVersion}`,
   ],
 
   // Release configurations

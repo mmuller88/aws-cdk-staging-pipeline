@@ -93,6 +93,11 @@
       "type": "runtime"
     },
     {
+      "name": "@aws-cdk/core",
+      "version": "1.122.0",
+      "type": "runtime"
+    },
+    {
       "name": "@aws-cdk/pipelines",
       "version": "1.122.0",
       "type": "runtime"
