@@ -6,7 +6,7 @@ const project = new typescript.TypeScriptProject({
   authorAddress: 'damadden88@googlemail.de',
   authorName: 'martin.mueller',
   defaultReleaseBranch: 'master',
-  name: '@damadden88/aws-cdk-staging-pipeline',
+  name: 'aws-cdk-staging-pipeline',
   repositoryUrl: 'https://github.com/mmuller88/aws-cdk-staging-pipeline',
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
   devDeps: [`@aws-cdk/assert@${cdkVersion}`],
