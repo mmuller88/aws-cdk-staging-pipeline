@@ -1,24 +1,24 @@
 {
   "name": "aws-cdk-staging-pipeline",
   "scripts": {
+    "build": "npx projen build",
+    "bump": "npx projen bump",
     "clobber": "npx projen clobber",
     "compile": "npx projen compile",
-    "test:compile": "npx projen test:compile",
-    "test": "npx projen test",
-    "build": "npx projen build",
-    "test:watch": "npx projen test:watch",
-    "test:update": "npx projen test:update",
-    "bump": "npx projen bump",
-    "unbump": "npx projen unbump",
-    "publish:github": "npx projen publish:github",
-    "publish:npm": "npx projen publish:npm",
-    "upgrade": "npx projen upgrade",
     "default": "npx projen default",
-    "watch": "npx projen watch",
-    "package": "npx projen package",
+    "eject": "npx projen eject",
     "eslint": "npx projen eslint",
+    "package": "npx projen package",
+    "post-compile": "npx projen post-compile",
+    "post-upgrade": "npx projen post-upgrade",
+    "pre-compile": "npx projen pre-compile",
     "release": "npx projen release",
     "release:aws-cdk-1-122-0": "npx projen release:aws-cdk-1-122-0",
+    "test": "npx projen test",
+    "test:watch": "npx projen test:watch",
+    "unbump": "npx projen unbump",
+    "upgrade": "npx projen upgrade",
+    "watch": "npx projen watch",
     "projen": "npx projen",
     "deploy": "cdk deploy",
     "destroy": "cdk destroy"
@@ -28,40 +28,26 @@
     "organization": false
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.122.0",
-    "@aws-cdk/aws-codepipeline": "1.122.0",
-    "@aws-cdk/aws-codepipeline-actions": "1.122.0",
-    "@aws-cdk/aws-iam": "1.122.0",
-    "@aws-cdk/aws-s3": "1.122.0",
-    "@aws-cdk/core": "1.122.0",
-    "@aws-cdk/pipelines": "1.122.0",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^10.17.0",
-    "@typescript-eslint/eslint-plugin": "^4.31.0",
-    "@typescript-eslint/parser": "^4.31.0",
-    "eslint": "^7.32.0",
-    "eslint-import-resolver-node": "^0.3.6",
-    "eslint-import-resolver-typescript": "^2.4.0",
-    "eslint-plugin-import": "^2.24.2",
-    "jest": "^27.1.1",
-    "jest-junit": "^12",
-    "json-schema": "^0.3.0",
-    "npm-check-updates": "^11",
-    "projen": "^0.27.51",
-    "standard-version": "^9",
-    "ts-jest": "^27.0.5",
-    "typescript": "^4.4.3"
+    "@stylistic/eslint-plugin": "^2",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^10.17.60",
+    "@typescript-eslint/eslint-plugin": "^8",
+    "@typescript-eslint/parser": "^8",
+    "commit-and-tag-version": "^12",
+    "constructs": "^10.0.0",
+    "eslint": "^9",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.31.0",
+    "jest": "^27.5.1",
+    "jest-junit": "^16",
+    "projen": "^0.91.18",
+    "ts-jest": "^27.1.5",
+    "typescript": "^4.9.5"
   },
-  "peerDependencies": {
-    "@aws-cdk/assert": "1.122.0",
-    "@aws-cdk/aws-codepipeline": "1.122.0",
-    "@aws-cdk/aws-codepipeline-actions": "1.122.0",
-    "@aws-cdk/aws-iam": "1.122.0",
-    "@aws-cdk/aws-s3": "1.122.0",
-    "@aws-cdk/core": "1.122.0",
-    "@aws-cdk/pipelines": "1.122.0"
+  "dependencies": {
+    "@mobileposse/auto-delete-bucket": "^1.56.0",
+    "aws-cdk-build-badge": "^1.97.21"
   },
-  "bundledDependencies": [],
   "keywords": [
     "aws",
     "cdk",
@@ -70,11 +56,15 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
+    "coverageProvider": "v8",
     "testMatch": [
-      "**/__tests__/**/*.ts?(x)",
-      "**/?(*.)+(spec|test).ts?(x)"
+      "<rootDir>/@(src|test)/**/*(*.)@(spec|test).ts?(x)",
+      "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)"
     ],
     "clearMocks": true,
     "collectCoverage": true,
@@ -82,6 +72,7 @@
       "json",
       "lcov",
       "clover",
+      "cobertura",
       "text"
     ],
     "coverageDirectory": "coverage",
@@ -106,7 +97,7 @@
     "preset": "ts-jest",
     "globals": {
       "ts-jest": {
-        "tsconfig": "tsconfig.jest.json"
+        "tsconfig": "tsconfig.dev.json"
       }
     }
   },
