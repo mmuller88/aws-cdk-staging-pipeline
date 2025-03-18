@@ -1,10 +1,8 @@
-const { TypeScriptProject } = require('projen');
+const { typescript } = require('projen');
 
 const cdkVersion = process.env.CDK_VERSION || '2.0.0-rc.21';
 
-const deps = [`aws-cdk-lib@${cdkVersion}`, 'constructs@^10.0.5'];
-
-const project = new TypeScriptProject({
+const project = new typescript.TypeScriptProject({
   authorAddress: 'damadden88@googlemail.de',
   authorName: 'martin.mueller',
   defaultReleaseBranch: 'master',
@@ -12,12 +10,16 @@ const project = new TypeScriptProject({
   repositoryUrl: 'https://github.com/mmuller88/aws-cdk-staging-pipeline',
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
   devDeps: [`@aws-cdk/assert@${cdkVersion}`],
-  deps,
+  deps: [`aws-cdk-lib@${cdkVersion}`, 'constructs@^10.0.5'],
   releaseToNpm: true,
-  // python: {
-  //   distName: 'aws-cdk-staging-pipeline',
-  //   module: 'aws_cdk_staging_pipeline',
-  // },
+  majorVersion: 2,
+  releaseBranches: {
+    'aws-cdk-1-122-0': {
+      majorVersion: 1,
+      minorVersion: 122,
+    },
+  },
+
   keywords: ['cdk', 'aws', 'pipeline', 'staging'],
 });
 

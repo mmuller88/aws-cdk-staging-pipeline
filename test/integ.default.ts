@@ -1,7 +1,7 @@
 import { CfnOutput, SecretValue, Stack } from 'aws-cdk-lib';
+import { PIPELINE_ENV, TestApp } from './testutil';
 import { CustomStack } from '../src/custom-stack';
 import { PipelineStack } from '../src/index';
-import { PIPELINE_ENV, TestApp } from './testutil';
 
 export class IntegTesting {
   readonly stack: Stack[];

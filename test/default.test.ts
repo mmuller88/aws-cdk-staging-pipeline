@@ -2,10 +2,10 @@ import { SynthUtils } from '@aws-cdk/assert';
 import '@aws-cdk/assert/jest';
 import { CfnOutput, SecretValue } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import { PIPELINE_ENV, TestApp } from './testutil';
 import { StageAccount } from '../src/accountConfig';
 import { CustomStack } from '../src/custom-stack';
 import { PipelineStack } from '../src/pipeline-stack';
-import { PIPELINE_ENV, TestApp } from './testutil';
 
 let defaultStackProperties: any = {
   env: PIPELINE_ENV,
