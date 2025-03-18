@@ -12,7 +12,16 @@ const project = new typescript.TypeScriptProject({
 
   // CDK specific configurations
   cdkVersion: cdkVersion,
-  deps: ['@mobileposse/auto-delete-bucket', 'aws-cdk-build-badge'],
+  deps: [
+    '@mobileposse/auto-delete-bucket',
+    'aws-cdk-build-badge',
+    `@aws-cdk/aws-codepipeline@${cdkVersion}`,
+    `@aws-cdk/aws-codepipeline-actions@${cdkVersion}`,
+    `@aws-cdk/aws-s3@${cdkVersion}`,
+    `@aws-cdk/aws-iam@${cdkVersion}`,
+    `@aws-cdk/pipelines@${cdkVersion}`,
+    `@aws-cdk/assert@${cdkVersion}`,
+  ],
 
   // Release configurations
   releaseToNpm: true,
