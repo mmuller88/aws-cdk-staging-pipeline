@@ -58,7 +58,6 @@ export class TestApp extends App {
 //   }
 // }
 
-
 // export class TestGitHubAction extends codepipeline_actions.GitHubSourceAction {
 //   constructor(sourceArtifact: codepipeline.Artifact) {
 //     super({
