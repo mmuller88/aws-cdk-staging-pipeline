@@ -1,7 +1,7 @@
 import * as core from '@aws-cdk/core';
+import { PIPELINE_ENV, TestApp } from './testutil';
 import { CustomStack } from '../src/custom-stack';
 import { PipelineStack } from '../src/index';
-import { PIPELINE_ENV, TestApp } from './testutil';
 
 export class IntegTesting {
   readonly stack: core.Stack[];
