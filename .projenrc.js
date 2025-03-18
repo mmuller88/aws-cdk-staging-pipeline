@@ -31,6 +31,7 @@ const project = new typescript.TypeScriptProject({
     'aws-cdk-1-122-0': {
       majorVersion: 1,
       minorVersion: 122,
+      patchVersion: 1,
     },
   },
 
