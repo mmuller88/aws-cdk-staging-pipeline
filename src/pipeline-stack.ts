@@ -22,7 +22,10 @@ export interface PipelineStackProps extends core.StackProps {
    * @param scope it the parent construct.
    * @param stageAccount the stage account from the current pipeline stage. You can use than stageAccount.stage or stageAccount.account.id or stageAccount.region
    */
-  readonly customStack: (scope: core.Construct, stageAccount: StageAccount) => CustomStack;
+  readonly customStack: (
+    scope: core.Construct,
+    stageAccount: StageAccount,
+  ) => CustomStack;
   // customStack: CustomStack;
   /**
    * Array of staging accounts. The order of the StageAccounts in the array determines the order of the pipeline.
@@ -121,12 +124,15 @@ export class PipelineStack extends core.Stack {
         projectName: `${this.stackName}-synth`,
         sourceArtifact,
         cloudAssemblyArtifact,
-        installCommand: props.installCommand || 'yarn install && yarn global add aws-cdk',
+        installCommand:
+          props.installCommand || 'yarn install && yarn global add aws-cdk',
         synthCommand: 'yarn synth',
         // subdirectory: 'cdk',
         // We need a build step to compile the TypeScript Lambda
         buildCommand: props.buildCommand,
       }),
+
+      cdkCliVersion: '2.155.126',
     });
 
     // todo: add devAccount later
@@ -146,27 +152,38 @@ export class PipelineStack extends core.Stack {
 
       // console.log(`Env: ${JSON.stringify(process.env)}`);
 
-      new core.CfnOutput(customStage.customStack, 'Stage', { value: stageAccount.stage || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'CommitID', { value: process.env.CODEBUILD_RESOLVED_SOURCE_VERSION || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'RepoUrl', { value: `https://github.com/${props.gitHub.owner}/${props.repositoryName}` || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'BranchName', { value: props.branch || 'not set!' });
-      new core.CfnOutput(customStage.customStack, 'BuildUrl', { value: process.env.CODEBUILD_BUILD_URL || 'not set!' });
+      new core.CfnOutput(customStage.customStack, 'Stage', {
+        value: stageAccount.stage || 'not set!',
+      });
+      new core.CfnOutput(customStage.customStack, 'CommitID', {
+        value: process.env.CODEBUILD_RESOLVED_SOURCE_VERSION || 'not set!',
+      });
+      new core.CfnOutput(customStage.customStack, 'RepoUrl', {
+        value:
+          `https://github.com/${props.gitHub.owner}/${props.repositoryName}` ||
+          'not set!',
+      });
+      new core.CfnOutput(customStage.customStack, 'BranchName', {
+        value: props.branch || 'not set!',
+      });
+      new core.CfnOutput(customStage.customStack, 'BuildUrl', {
+        value: process.env.CODEBUILD_BUILD_URL || 'not set!',
+      });
 
       // unwrap CustomStack cfnOutputs for using in useOutputs for test action
       const useOutputs: Record<string, StackOutput> = {};
       for (const cfnOutput in customStage.customStack.cfnOutputs) {
         const output = customStage.customStack.cfnOutputs[cfnOutput];
-        useOutputs[cfnOutput] = cdkPipeline.stackOutput(
-          output,
-        );
+        useOutputs[cfnOutput] = cdkPipeline.stackOutput(output);
       }
 
       const preprodStage = cdkPipeline.addApplicationStage(customStage, {
         manualApprovals: props.manualApprovals?.call(this, stageAccount),
       });
 
-
-      const testCommands = props.testCommands ? props.testCommands.call(this, stageAccount) : [];
+      const testCommands = props.testCommands
+        ? props.testCommands.call(this, stageAccount)
+        : [];
 
       preprodStage.addActions(
         new ShellScriptAction({
