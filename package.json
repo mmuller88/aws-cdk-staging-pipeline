@@ -18,6 +18,7 @@
     "package": "npx projen package",
     "eslint": "npx projen eslint",
     "release": "npx projen release",
+    "release:aws-cdk-1-122-0": "npx projen release:aws-cdk-1-122-0",
     "projen": "npx projen",
     "deploy": "cdk deploy",
     "destroy": "cdk destroy"

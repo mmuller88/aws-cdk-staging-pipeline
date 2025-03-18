@@ -48,3 +48,4 @@ junit.xml
 !/.eslintrc.json
 !/tsconfig.eslint.json
 !/.github/workflows/release.yml
+!/.github/workflows/release-aws-cdk-1-122-0.yml

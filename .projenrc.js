@@ -40,6 +40,14 @@ const project = new TypeScriptProject({
   //   module: 'aws_cdk_staging_pipeline',
   // },
   keywords: ['cdk', 'aws', 'pipeline', 'staging'],
+  majorVersion: 2,
+  releaseBranches: {
+    'aws-cdk-1-122-0': {
+      majorVersion: 1,
+      minorVersion: 122,
+      // patchVersion: 1,
+    },
+  },
 });
 
 project.setScript('deploy', 'cdk deploy');
