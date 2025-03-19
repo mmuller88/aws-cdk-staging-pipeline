@@ -132,7 +132,7 @@ export class PipelineStack extends core.Stack {
         buildCommand: props.buildCommand,
       }),
 
-      cdkCliVersion: '2.155.126',
+      cdkCliVersion: '1.122.0',
     });
 
     // todo: add devAccount later
