@@ -1,6 +1,6 @@
 const { typescript } = require('projen');
 
-const cdkVersion = process.env.CDK_VERSION || '1.122.0';
+const cdkVersion = process.env.CDK_VERSION || '1.135.0';
 
 const project = new typescript.TypeScriptProject({
   authorAddress: 'damadden88@googlemail.de',
@@ -31,7 +31,7 @@ const project = new typescript.TypeScriptProject({
   releaseBranches: {
     'aws-cdk-1-122-0': {
       majorVersion: 1,
-      minorVersion: 122,
+      minorVersion: 135,
     },
   },
 
